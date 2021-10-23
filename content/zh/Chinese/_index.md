@@ -1,7 +1,7 @@
 ---
 title: "议论文"
 linkTitle: "议论文"
-type: blog
+type: docs
 menu:
   main:
     weight: 3
