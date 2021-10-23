@@ -1,0 +1,91 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seine – OIblogs</title>
+    <link>/oiblogs/</link>
+    <description>Recent content in OIblogs on Seine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/oiblogs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/math%E6%95%B0%E8%AE%BA/%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/math%E6%95%B0%E8%AE%BA/%E5%90%8C%E4%BD%99%E6%96%B9%E7%A8%8B/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/math%E6%95%B0%E8%AE%BA/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/math%E6%95%B0%E8%AE%BA/%E6%AC%A7%E6%8B%89%E5%87%BD%E6%95%B0/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/math%E6%95%B0%E8%AE%BA/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/math%E6%95%B0%E8%AE%BA/%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;矩阵乘法&#34;&gt;矩阵乘法&lt;/h1&gt;
+&lt;h2 id=&#34;基本概念&#34;&gt;基本概念&lt;/h2&gt;
+&lt;p&gt;$n$ 行 $m$ 列个元素有规律的排列在一起，构成一个矩阵，记作 $A=(a_{i,j})_{n\times m}\in R^{n\times m}$。&lt;/p&gt;
+&lt;p&gt;若 $n=m$ ，则这个矩阵为 $n$ 阶矩阵。&lt;/p&gt;
+&lt;h2 id=&#34;基本运算规则&#34;&gt;基本运算规则&lt;/h2&gt;
+&lt;h3 id=&#34;加减法&#34;&gt;加减法&lt;/h3&gt;
+&lt;p&gt;对于两个矩阵 $A=(a_{i,j})_{a\times b}$ 和 $B=(b_{i,j})_{x\times y}$，当且仅当 $a=x$ 且 $b=y$ 时，$A-B$ 和 $A+B$ 有意义。&lt;/p&gt;
+&lt;p&gt;$A-B=$&lt;/p&gt;
+&lt;h3 id=&#34;乘法&#34;&gt;乘法&lt;/h3&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/math%E6%95%B0%E8%AE%BA/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/math%E6%95%B0%E8%AE%BA/%E7%BB%84%E5%90%88%E6%95%B0%E5%AD%A6/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/math%E6%95%B0%E8%AE%BA/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/math%E6%95%B0%E8%AE%BA/%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

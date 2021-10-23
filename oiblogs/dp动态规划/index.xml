@@ -1,0 +1,770 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seine – 动态规划</title>
+    <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</link>
+    <description>Recent content in 动态规划 on Seine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>OIblogs: 背包问题</title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;背包问题&#34;&gt;背包问题&lt;/h1&gt;
+&lt;h2 id=&#34;01背包&#34;&gt;01背包&lt;/h2&gt;
+&lt;h3 id=&#34;引题&#34;&gt;引题：&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;原版：&lt;/strong&gt;
+有一个背包，可容纳重量为 $k$ 的物品。有 $n$ 个物品（每个物品只有一个），第 $i$ 个物品的重量为 $w[i]$，价值为 $val[i]$。求背包可容纳物品的最大价值。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;魔改版：&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;你有 $n$ 项作业，但是你只有 $k$ 的时间，第 $i$ 项作业需 $val_i$ 个小时完成。但是，因为作业的内容、难度不同，对于每一项作业老师取得的快乐值也不同。&lt;/p&gt;
+&lt;p&gt;比如：如果你完成了一道全班只有你才完成的数学难题，老师会很高兴，即使你没有把定义练习抄写1000000000遍，老师也不会批评你；然而，如果你只把 $1+1=2$ 这类的题做完了，而稍微难一点儿的题就不做，老师就会很生气，认为你很懒，而让你把定义再抄100000000000遍。&lt;/p&gt;
+&lt;p&gt;问，在有限的时间内，如何使老师获得的快乐值最大？&lt;del&gt;从而免去抄写&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;心灵的震撼&#34;&gt;心灵的震撼&lt;/h3&gt;
+&lt;p&gt;我相信，每一个第一次接触dp的人都会为之而着迷，毕竟一种优美的暴力手段是每一个有着 $ak\space IOI$ 的人所梦寐以求的。&lt;/p&gt;
+&lt;p&gt;dp之所以比暴搜快，可以看做是因为记录了中间过程的权值，进而优化掉了DFS中很多重复的子树，也可以看做一种牺牲空间换取时间的做法。&lt;/p&gt;
+&lt;p&gt;dp的核心思想就是从之前的状态推导当前状，进而在 $O(1\sim n)$ 的时间内找到当前状态的解。&lt;/p&gt;
+&lt;p&gt;也就是说，dp时无需考虑问题整体，而是化为一个个的状态，只需要关注某个状态如何从之前已经得到的状态中转移过来。&lt;/p&gt;
+&lt;p&gt;使用dp时很多时候论证其正确性是一个费时费力还费脑子的工作，因此dp题目需要你有一定的经验、大胆的尝试和欧气(毕竟dp的样例一般都很水，可能一道题样例全过就得个 $30+$ 的分数也不是没有可能)，因为考试的时候没那么多时间，大多数dp代码都不长，建议有想法就直接写，搞出来后跑样例，然后再做调整。正常情况下，只要能过 $1+$ 个样例，基本上不会暴零。可以先写出一个局部解，然后再完善dp的状态转移方程。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;上面唠唠叨叨&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;dp最重要的就是&lt;strong&gt;状态&lt;/strong&gt;和&lt;strong&gt;转移&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;在01背包中，我们用 $dp[i][j]$ 表示在前 $i$ 件物品中选择，背包容量为 $j$ 时能装的最大价值。&lt;/p&gt;
+&lt;p&gt;然后，思考这个式子：
+$$
+dp[i][j]=max(dp[i-1][j],dp[i-1][j-w[i]]+val[i])
+$$
+$max$ 表示求取的最大值。因为我们已经知道了前 $i-1$ 个物品在背包容量为 $a\in[1,k]$ 时能装下的最大价值，因此对于第 $i$ 件物品，只有两种选择：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;装(前提是 $w[i]\le j$，毕竟得能装下才有讨论的必要)&lt;/li&gt;
+&lt;li&gt;不装 &lt;del&gt;(你能把我怎样？)&lt;/del&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;若不选择第 $i$ 件物品，很简单，其在容量为 $j$ 的背包下最大价值 $=$ 从前 $i-1$ 件中选择的最大价值(反正不选第 $i$ 件，所以没有影响) $=\space dp[i-1][j]$。&lt;/p&gt;
+&lt;p&gt;若选择第 $i$ 件物品，则应在前 $i-1$ 个中选择后至少剩余 $w[i]$ 的背包空间，然后选择第 $i$ 个物品，我们就会获得它的价值 $val[i]$，因此总共获得价值为 $dp[i-1][j-w[i]]+val[i]$。&lt;/p&gt;
+&lt;p&gt;易证，当物品相同时，大容量的背包装的总价值一定不小于小背包装的，因此只考虑最大的可能背包即可，不必遍历小背包。&lt;/p&gt;
+&lt;p&gt;当我们把这张表填完的时候，$dp[n][k]$ (表示选择前 $n$ 个物品背包容量为 $k$ 时能装下的最大值)就是我们要求的最终答案。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;线性优化&#34;&gt;线性优化&lt;/h3&gt;
+&lt;p&gt;我们发现了一个问题，上述01背包问题求解时，时间复杂度为 $O(nk)$，而空间复杂度也为 $O(nk)$。&lt;/p&gt;
+&lt;p&gt;因为这玩意常数比较小，在 $nk\le10^8$ 内都能跑过，但是，内存肯定不够用啊……&lt;del&gt;人间疑惑&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;可不可以优化一下啊，毕竟好不容易不TLE了要是再MLE可就要&lt;del&gt;砸电脑了&lt;/del&gt;螺旋升天了，进而怀疑人生……&lt;/p&gt;
+&lt;p&gt;好消息！好消息！好消息！空间可以优化！&lt;/p&gt;
+&lt;p&gt;观察转移方程，我们实际上只用到了 $2\times k$ 个值，其余的我们都不需要，所以，我们搞一个 &lt;code&gt;int dp[2][k]&lt;/code&gt;好吗？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当然可以！&lt;/strong&gt;&lt;del&gt;只要你调的出来，理论上确实可行，只要你不是每搞完一行整一个 O(k) 的复制就行&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;下面，让我们再动脑子想一想，在缩小一下转移方程使用到的值，其实只有 $dp[i-1][a\in[1,j]]$，大于 $j$ 的我们用不到！&lt;/p&gt;
+&lt;p&gt;所以，我们能不能在一维数组上解决这个问题呢？&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;当然可以！&lt;/strong&gt;&lt;del&gt;没得怕的&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;只要我们从后往前遍历即可！即&lt;code&gt;for(int i = k;i &amp;gt; 0;i--)&lt;/code&gt;即可。&lt;/p&gt;
+&lt;p&gt;因为，当我们遍历原二维数组第 $i$ 行时，现在数组中存储的就是原二维数组第 $i-1$ 行的值，并且即使大于 $j$ 的部分被更改，我们需要使用的小于等于$j$ 的部分仍旧是原第 $i-1$ 行的dp值，因此，状态转移方程魔改一下：
+$$
+dp[j]=max(dp[j],dp[j-w[i]]+val[i])
+$$
+&lt;del&gt;体会到了人类脑洞之大&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;我们的最终答案，就在跑完之后，存在 $dp[k]$ 的地方。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;注：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;如果要 $dp[j] =$ 重量恰好为 $j$ 的最大价值，在DP前将 $dp$ 数组初始化为 $\infty$ 即可。&lt;/li&gt;
+&lt;li&gt;如果有重量为负值（显然此时要求的是重量恰好为 $j$ 的最大价值），循环顺序要改为正序，且 $dp$ 的下标统一加一个足够大的数以保证全为正数！&lt;/li&gt;
+&lt;li&gt;一维优化不能重构路径，但是二维数组可以通过一些办法(回溯，又称为逆推)求出咋装的。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;完全背包&#34;&gt;完全背包&lt;/h2&gt;
+&lt;p&gt;背包问题大多是从01背包的基础上演化而来，简言之就是01背包的增强版。&lt;/p&gt;
+&lt;p&gt;01背包的问题魔改一下就是完全背包：&lt;/p&gt;
+&lt;p&gt;我们还有一个背包，可容纳重量为 $k$ 的物品。有 $n$ &lt;strong&gt;种&lt;/strong&gt;物品（每种物品有&lt;strong&gt;无限多个&lt;/strong&gt;），第 $i$ 种物品的重量为 $w[i]$，价值为 $val[i]$。求背包可容纳物品的最大价值。&lt;/p&gt;
+&lt;p&gt;我们依然使用 $dp[i][j]$ 表示从前 $i$ 种物品中选择，背包容量为 $j$ 时能装的最大价值。&lt;/p&gt;
+&lt;p&gt;然后，状态转移方程就变化了：
+$$
+dp[i][j]=max(dp[i-1][j],dp[i][j-w[i]]+val[i])
+$$
+不难发现，对于第 $i$ 种物品，我们可以选择 $a\in[0,\frac{j}{w[i]}]$ 个。分为两类：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;不选第 $i$ 种物品。&lt;/li&gt;
+&lt;li&gt;选第 $i$ 种物品 $a$ 个。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;然后，这个问题又可以分为两步：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;确定选还是不选&lt;/li&gt;
+&lt;li&gt;如果选，选几个&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;这时候，想一想dp的奥妙，即从已知推导出未知。&lt;/p&gt;
+&lt;p&gt;不选很好解决，$dp[i-1][j]$ 就是不选第 $i$ 种的最大价值。&lt;/p&gt;
+&lt;p&gt;那如果选呢？再回想dp数组的意义和01背包对于选物品的空间预留，可以得到 $dp[i][j-w[i]]+val[i]$ 这样的一个式子。我们只需要在可以选择第 $i$ 种的情况下留出 $w[i]$ 的空间来再装下一个第 $i$ 种物品即可。这样，我们无需知道第 $i$ 种物品应该选择几个，因为我们只需要在之前的最优解上进行状态转移即可，换言之我们只需要考虑多装一个是否更优，而不是遍历装几个更优，因为背包容量从小到大，能装下的个数也是从小到大。&lt;/p&gt;
+&lt;h3 id=&#34;线性优化-1&#34;&gt;线性优化&lt;/h3&gt;
+&lt;p&gt;和01背包一样，完全背包依旧时间复杂度 $O(nk)$，空间复杂度 $O(nk)$。&lt;/p&gt;
+&lt;p&gt;那么，就会出现同样的问题。&lt;/p&gt;
+&lt;p&gt;既然差不多，完全背包也能线性优化吗？&lt;/p&gt;
+&lt;p&gt;**当然可以！**只不过需要进行一些调整，来适应新的状态转移方程。&lt;/p&gt;
+&lt;p&gt;我们发现，新的状态转移方程依赖于 $dp[i][a\in[0,j]]$ 而并不依赖于 $dp[i-1][a\in[0,k]]$ 和 $dp[i][a\in(j,k]]$，因此，我们需要改变遍历的顺序。&lt;/p&gt;
+&lt;p&gt;上面我们已经理解了线性优化后 $dp[j]$ 在修改前表示 $dp[i-1][j]$，所以&lt;code&gt;for(int i = 0;i &amp;lt; k;i++)&lt;/code&gt;改为正序遍历即可先求出第 $i$ 行较小的 $j$ 进而推导出较大的 $j$，完成dp。这样，空间复杂度降为 $O(k)$。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;同01背包，一维优化不能重构路径，但二维可以。&lt;/p&gt;
+&lt;h2 id=&#34;多重背包&#34;&gt;多重背包&lt;/h2&gt;
+&lt;p&gt;同样，上来还是老问题：&lt;/p&gt;
+&lt;p&gt;我们又有一个背包，可容纳重量为 $k$ 的物品。有 $n$ 中物品，第 $i$ 种物品有 $c[i]$个，每个重量为 $w[i]$，价值为 $val[i]$。求背包可容纳物品的最大价值。&lt;/p&gt;
+&lt;p&gt;看，看，看，是不是和01背包又是差不多？&lt;/p&gt;
+&lt;p&gt;所以，最简单的想法就是将每个物品拆成独立的个体，跑01背包，时间复杂度为 $O(k\times\sum_{i=1}^nc[i])$。&lt;/p&gt;
+&lt;p&gt;但是，显然，&lt;strong&gt;太慢了！&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;观察，多重背包与01背包最大的不同，就是有多个物品属性相同， 这也成为优化的入手点。&lt;/p&gt;
+&lt;p&gt;先说一个题外话：人民币大家都知道吧，有$1$元的、$10$元的还有红色毛爷爷……那么，为什么不全用$1$元的？这样也可以表示任意的金额啊？&lt;/p&gt;
+&lt;p&gt;但是，前几天刚出现了一个新闻，某男子用一麻袋硬币交房租被告上法庭……所以，体会到了红色毛爷爷的重要性。&lt;/p&gt;
+&lt;p&gt;因此，我们的多重背包也可以借助这个思想，将 $c[i]$ 个物品划分成几组，从而能且仅能表示出所有 $a\in[0,c[i]]$ 。&lt;/p&gt;
+&lt;p&gt;问题来了，知道了为什么要分组，接下来就是怎么分组了。&lt;/p&gt;
+&lt;h3 id=&#34;二进制拆分&#34;&gt;二进制拆分&lt;/h3&gt;
+&lt;p&gt;我们先来看 $0\sim19$ 的二进制表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;十进制&lt;/th&gt;
+&lt;th&gt;二进制&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;00000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;1&lt;/td&gt;
+&lt;td&gt;00001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;00010&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;00011&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;00100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;00101&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;00110&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;00111&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;01000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;01001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;01010&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;11&lt;/td&gt;
+&lt;td&gt;01011&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;01100&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;13&lt;/td&gt;
+&lt;td&gt;01101&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;14&lt;/td&gt;
+&lt;td&gt;01110&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;15&lt;/td&gt;
+&lt;td&gt;01111&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;16&lt;/td&gt;
+&lt;td&gt;10000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;17&lt;/td&gt;
+&lt;td&gt;10001&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;18&lt;/td&gt;
+&lt;td&gt;10010&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;19&lt;/td&gt;
+&lt;td&gt;10011&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;然后，我们发现，对于任意一个二进制数，均可以用不同的只有一位是 $1$ 的二进制数相加得到，如：&lt;/p&gt;
+&lt;p&gt;$13$ = $(01101)_2$ = $(01000)_2+(00100)_2+(00001)_2$&lt;/p&gt;
+&lt;p&gt;而这个规律翻译成十进制就是，对于数 $2^{k-1}&amp;lt;a\le2^k$ 一定可以用 $2^0,2^1,2^2,2^3,\dots,2^{k-1}$ 和 $a-2^{k-1}$ 中的某几个数相加得到。这就构成了我们分组的依据。&lt;/p&gt;
+&lt;p&gt;我们将 $c[i]$ 拆分成 $2^0,2^1,2^2,\dots,2^{k-1},c[i]-a$，当成一共 $k$ 个物品，第 $x$ 组(个)物品的重量为 $第x组的个数\times w[x]$，价值为 $第x组的个数\times val[x]$。&lt;/p&gt;
+&lt;p&gt;这样拆分之后，在跑01背包，即可将时间复杂度降至 $O(k\times\sum_{i=1}^n\log{c[i]})$。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;混合背包&#34;&gt;混合背包&lt;/h2&gt;
+&lt;p&gt;01、完全、多重背包三合一。&lt;del&gt;大锅炖&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;01背包当 $c[i]=1$，完全背包当 $c[i]=\lfloor\frac{k}{w[i]}\rfloor$ 即可。&lt;/p&gt;
+&lt;h2 id=&#34;多限制背包&#34;&gt;多限制背包&lt;/h2&gt;
+&lt;p&gt;物品有更多属性，对每种属性都有限制。&lt;/p&gt;
+&lt;p&gt;把所有限制都加到状态里即可。&lt;/p&gt;
+&lt;h2 id=&#34;分组背包&#34;&gt;分组背包&lt;/h2&gt;
+&lt;p&gt;描述：有n件物品，分为若干组，现约束，在每组物品里最多取一件物品放入背包，每件物品的重量确定，价值确定，背包容量确定，求在不超过背包容量的情况下，可以存放的最大价值。&lt;/p&gt;
+&lt;p&gt;$w[i][j]$ 表示第 $i$ 组第 $j$ 件物品的重量，$val[i][j]$ 表示第 $i$ 组第 $j$ 件物品的价值，$dp[a][b]$ 表示在前 $a$ 组中选择重量不大于 $b$ 的最大价值。&lt;/p&gt;
+&lt;p&gt;对于任意一组物品，共计两类状态：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;一个都不选&lt;/li&gt;
+&lt;li&gt;选择第 $i\in[1,len]$ 个&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，在01背包的基础上进行嵌套循环，每次遍历整组，求出最优解即可。&lt;/p&gt;
+&lt;p&gt;线性空间优化见上文。&lt;/p&gt;
+&lt;h2 id=&#34;背包方案计数&#34;&gt;背包方案计数&lt;/h2&gt;
+&lt;p&gt;把所有的取 $max$ 都改成求和即可。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意：&lt;strong&gt;多重背包不能用二进制拆分优化了，因为&lt;/strong&gt;同样的&lt;/strong&gt;数量拆分方式&lt;strong&gt;不唯一&lt;/strong&gt;。&lt;/p&gt;
+&lt;h2 id=&#34;依赖性背包&#34;&gt;依赖性背包&lt;/h2&gt;
+&lt;p&gt;依赖关系只有一层：把每个“主件”当做一个背包，然后将各背包合并（也是树形背包的基本思路）。&lt;/p&gt;
+&lt;p&gt;无循环依赖（树形背包）：&lt;a href=&#34;./%E6%A0%91%E5%BD%A2dp.md&#34;&gt;树形DP&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;有循环依赖：&lt;a href=&#34;../graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F.md&#34;&gt;Tarjan+缩点&lt;/a&gt; + &lt;a href=&#34;./%E6%A0%91%E5%BD%A2dp.md&#34;&gt;树形DP&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;请在相应章节查看。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 线性dp</title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7dp/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%BA%BF%E6%80%A7dp/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;线性dp&#34;&gt;线性dp&lt;/h1&gt;
+&lt;h2 id=&#34;最基本的dp和dp简介&#34;&gt;最基本的dp和dp简介&lt;/h2&gt;
+&lt;h3 id=&#34;一种优美的暴力&#34;&gt;一种优美的暴力&lt;/h3&gt;
+&lt;p&gt;动态规划可以看做在&lt;strong&gt;最优化问题&lt;/strong&gt;和&lt;strong&gt;计数问题&lt;/strong&gt;中对暴力搜索的优化。&lt;/p&gt;
+&lt;p&gt;在暴力搜索中，我们要枚举&lt;strong&gt;每一步&lt;/strong&gt;决策，枚举所有的方案。&lt;/p&gt;
+&lt;p&gt;但在多数问题中，暴力搜索其实会做大量重复工作，重复计算大量中间结果。&lt;/p&gt;
+&lt;p&gt;动态规划就是把这些中间结果用dp数组记录下来，以便后续利用。&lt;/p&gt;
+&lt;p&gt;最基本的状态和转移方程的设计比较容易，在NOIP题目中一般占分 $30\sim60$。&lt;/p&gt;
+&lt;p&gt;最基本的方程的设计并没有特别的技巧。一般来说，&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;动态规划问题的“三大要素”：&lt;strong&gt;状态、转移、边界&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;题目中给的条件都可以加入状态中，题目要求最优化的值就是DP值。&lt;/li&gt;
+&lt;li&gt;转移方程往往根据最后一步决策来设计。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;线性dp-1&#34;&gt;线性dp&lt;/h3&gt;
+&lt;p&gt;状态均沿&lt;strong&gt;一个方向&lt;/strong&gt;转移的dp。&lt;/p&gt;
+&lt;p&gt;例如最基本的模型——&lt;a href=&#34;https://www.luogu.com.cn/problem/P1216&#34;&gt;数字三角形&lt;/a&gt;和&lt;a href=&#34;http://noi.openjudge.cn/ch0206/1759/&#34;&gt;最长上升子序列(LIS)&lt;/a&gt;都属于线性dp。&lt;/p&gt;
+&lt;p&gt;[洛谷P1216 [USACO1.5][IOI1994] 数字三角形 Number Triangles](&lt;a href=&#34;https://www.luogu.com.cn/problem/P1216&#34;&gt;https://www.luogu.com.cn/problem/P1216&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;$dp[i][j]$表示以第 $i$ 行第 $j$ 列为终点的最大数字和，转移方程为 $dp[i][j]=max(dp[i-1][j],dp[i-1][j-1])+val[i][j]$。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;http://noi.openjudge.cn/ch0206/1759/&#34;&gt;Openjudge 2.6 1759 最长上升子序列&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;一会儿详细的说。&lt;/p&gt;
+&lt;h2 id=&#34;几种优化的方式&#34;&gt;几种优化的方式&lt;/h2&gt;
+&lt;p&gt;因为dp要对于题目而设计转移方程，因此有一些优化方式仅能用例题去表示。&lt;/p&gt;
+&lt;p&gt;但是，强烈建议能想到dp的题先搞出来最基本的，然后再优化，便于对拍和防止暴零。&lt;/p&gt;
+&lt;h3 id=&#34;无优化&#34;&gt;无优化&lt;/h3&gt;
+&lt;p&gt;以LIS为例子。&lt;/p&gt;
+&lt;p&gt;求最长上升子序列和最长不降子序列(注意，是子序列以及不降表示可以相等;对于固定的数组，虽然LIS序列不一定唯一，但LIS的长度是唯一的)。&lt;/p&gt;
+&lt;p&gt;我们用 $dp[i]$ 表示以第 $i$ 位结尾的LIS长度。&lt;/p&gt;
+&lt;p&gt;转移时每次都向前找比它小的数和比它大的数的位置，将第一个比它大的替换掉。这样操作虽然LIS序列的具体数字可能会变，但是很明显LIS长度还是不变的，因为只是把数替换掉了，并没有改变增加或者减少长度。&lt;/p&gt;
+&lt;p&gt;因此，转移方程为：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+		&lt;span style=&#34;color:#000&#34;&gt;dp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;dp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+	&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;else&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;big&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2e9&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ji&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+		&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+			&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;big&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+			&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+				&lt;span style=&#34;color:#000&#34;&gt;big&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;num&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+				&lt;span style=&#34;color:#000&#34;&gt;ji&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+			&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+		&lt;span style=&#34;color:#000&#34;&gt;dp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;ji&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;dp&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;ji&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+	&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;del&gt;比较复杂&lt;/del&gt;&lt;/p&gt;
+&lt;h3 id=&#34;减少多余状态&#34;&gt;减少多余状态&lt;/h3&gt;
+&lt;p&gt;打一个恰当的比方，当你的 $dp$ 状态有$4$个，但是其中一个可以由剩下的$3$个推算得来，则这个状态就可以省略(优化掉)。&lt;/p&gt;
+&lt;h3 id=&#34;改变状态设计&#34;&gt;改变状态设计&lt;/h3&gt;
+&lt;p&gt;通俗一点，就是换一个dp的思路。&lt;/p&gt;
+&lt;h3 id=&#34;前后缀和优化dp&#34;&gt;前（后）缀和优化DP&lt;/h3&gt;
+&lt;h2 id=&#34;背包问题&#34;&gt;背包问题&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;./%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98.md&#34;&gt;背包问题&lt;/a&gt;是一类特殊的线性DP问题。其模型应用极为广泛，故单独叙述。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/kmp/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/kmp/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;kmp&#34;&gt;KMP&lt;/h1&gt;
+&lt;h2 id=&#34;入门第一发&#34;&gt;入门第一发&lt;/h2&gt;
+&lt;p&gt;相信，很多人入门的第一个算法(除去贪心等基本思想)，所以，先来略略领会一下dp的奥妙和人类的脑洞叭。&lt;/p&gt;
+&lt;h3 id=&#34;字符串匹配问题&#34;&gt;字符串匹配问题：&lt;/h3&gt;
+&lt;p&gt;一类在一个字符串中查找其他字符串出现情况的问题。称被匹配的串为&lt;strong&gt;主串&lt;/strong&gt;；称在主串中寻找匹配位置的串为&lt;strong&gt;模式串&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;其按模式串个数分为&lt;strong&gt;单模&lt;/strong&gt;匹配和&lt;strong&gt;多模&lt;/strong&gt;匹配问题。而KMP是一种利用 LBorder 来高效解决单模匹配的算法。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;单模匹配问题&lt;/strong&gt;：给定两个串 $n$ 和 $m$ ，求 $m$在 $n$ 中出现的所有位置。&lt;/p&gt;
+&lt;p&gt;字符串 $s$ 的公共前后缀（即：$s[i]=s[len-i]$）称作Border。空串与原串也是 Border。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;非原串&lt;/strong&gt;的最长的 Border 称作 &lt;strong&gt;LBorder&lt;/strong&gt; (Longest Border)。&lt;/p&gt;
+&lt;p&gt;LBorder 的性质使得 KMP 算法在匹配失败时能够直接按 LBorder 将主串与模式串重新对齐并继续尝试匹配，从而有效避免了暴力做法中盲目试错的过程。&lt;/p&gt;
+&lt;h2 id=&#34;预处理&#34;&gt;预处理&lt;/h2&gt;
+&lt;p&gt;为模式串建立 $next$ 数组，$next[i]$ 表示当模式串匹配到第 $i$ 位失配时应该从哪一位开始匹配。&lt;/p&gt;
+&lt;p&gt;注意，$next[0]$ 和 $next[1]$ 不存在Border(一共长度没有 $2$，上哪来的两个子串？)，因此根据其意义规定为 $next[0]=next[1]=0$，在这两位失配时均从头开始匹配。&lt;/p&gt;
+&lt;p&gt;而构建 $next$ 数组，运用了一点dp的思想，即尽可能的使用现有的去推导已知的。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;KMP.assets/KMP.png&#34; alt=&#34;kmp&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上图演示：当我们求 $next[j+1]$ 时，已经知道 $next[0]\sim next[j]$ 的值。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;首先，我们判断 $j+1=k$，若成立则 $next[j+1]=next[j]+1$ 并退出，若不成立执行第 $2$ 步。&lt;/li&gt;
+&lt;li&gt;再次判断 $j+1=h$，若成立则 $next[j+1]=next[k]+1$ 并退出，若不成立执行第 $3$ 步。&lt;/li&gt;
+&lt;li&gt;接着判断……&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;那么，问题来了，问什么我们这样做是对的呢？&lt;del&gt;(这题我A了，但是为什么？)&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;看上图，方块表示对应位置的字符，每条颜色对应的横线是相等的子串(其实就是之前求出的LBonder)。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;因为 $A_1=A_2$，因此 $next[j]=k$。如果 $j=k$，则 $next[j+1]$ 应该指向 $k+1$ 位(LBonder的长度为 $A_1+第k位$)。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若上面的没匹配到，则因为 $A_1=A_2\space&amp;amp;\space b_1=b_2$，我们可以推导出 $b_1=b_3$，这样，我们又重复了上面的那个问题，所以一样的方法再做一遍即可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;我们推导可知， $c_1=c_2=c_3=c_4$，所以继续……&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下面，我们上代码！&lt;/p&gt;
+&lt;p&gt;因为通常起始位置可能是下标 $0$ 或者是下标 $1$，构建的时候可以目标第 $j$ 位或者第 $j+1$ 位；因此，经过组合数的计算，我们一共有 $4$ 种代码。&lt;/p&gt;
+&lt;p&gt;从 $0$ 开始目标 $j$ 位：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;inline&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从 $0$ 开始目标 $j+1$ 位 ：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;inline&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从 $1$ 开始目标 $j$ 位：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;inline&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;3&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;从 $1$ 开始目标 $j+1$ 位：&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;inline&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;开始匹配&#34;&gt;开始匹配&lt;/h2&gt;
+&lt;p&gt;而接下来的匹配就很好搞了，只要一失配就跳next即可。这样，可以做到主串的 $i$ 不会退，提高了效率。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/P3375&#34;&gt;洛谷 P3375 【模板】KMP字符串匹配&lt;/a&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;const&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;maxe&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1e6&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;9&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nxt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;maxe&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;],&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;na&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nb&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;inline&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;void&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;len&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;in&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;?&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;now&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;:&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;main&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;()&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;scanf&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;%s%s&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;na&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;nb&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;strlen&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#000&#34;&gt;get_next&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nxt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;na&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;while&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;!=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;//不断失配跳转
+&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&lt;/span&gt;        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nxt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;];&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;b&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;a&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;])&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+        &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nb&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+            &lt;span style=&#34;color:#000&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;%d&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;-&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;j&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;2&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;);&lt;/span&gt;
+        &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;for&lt;/span&gt; &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt; &lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;&amp;lt;=&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nb&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#ce5c00;font-weight:bold&#34;&gt;++&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;)&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;{&lt;/span&gt;
+        &lt;span style=&#34;color:#000&#34;&gt;printf&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#4e9a06&#34;&gt;&amp;#34;%d &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;,&lt;/span&gt; &lt;span style=&#34;color:#000&#34;&gt;nxt&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;[&lt;/span&gt;&lt;span style=&#34;color:#000&#34;&gt;i&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;]);&lt;/span&gt;
+    &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+    &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
+&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;字符串最小循环节&#34;&gt;字符串最小循环节&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;证明：字符串最小循环节 = 字符串长度 - LBonder(尾部next数组)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;假设字符串 $a$ 是其子串 $b$ 循环 $k$ 次在加一个 $b$ 的前缀 $d$ 得到，$a$ 串的LBonder长 $x$，则我们思考一个问题：&lt;/p&gt;
+&lt;p&gt;前 $k-1$ 个 $b$ 加一个 $d$ 等于后 $k-1$ 个 $b$ 加一个 $d$。举个栗子：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;a&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;b&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;c&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;a&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;b&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;c&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;a&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;b&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;c&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;前&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;c&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;后&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;c&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;a&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;b&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;我们发现，前 $k-1$ 个 $b$ 加一个 $d$ 等于后 $k-1$ 个 $b$ 加一个 $d$ 等于 LBonder！&lt;/p&gt;
+&lt;p&gt;所以，$b$ 的长度就是(看上表) $a$ 串的长度 - 后 $k-1$ 个 $b$ 加一个 $d$ 的长度 = $a$ 的最小循环节&lt;/p&gt;
+&lt;p&gt;所以，字符串最小循环节 = 字符串长度 - LBonder(尾部next数组)。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 区间dp</title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8C%BA%E9%97%B4dp/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E5%8C%BA%E9%97%B4dp/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;区间dp&#34;&gt;区间dp&lt;/h1&gt;
+&lt;p&gt;顾名思义，就是在区间上进行dp。&lt;/p&gt;
+&lt;p&gt;区间DP用于解决决策涉及到&lt;strong&gt;相邻区间合并&lt;/strong&gt;的问题。&lt;/p&gt;
+&lt;p&gt;它的转移方向是由小区间向大区间转移，所以在转移的时候，要注意转移顺序。&lt;/p&gt;
+&lt;h2 id=&#34;经典例题一发&#34;&gt;经典例题一发&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/P1880&#34;&gt;P1880 [NOI1995] 石子合并&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;先来看状态转移方程：
+$$
+dp[i][j]=max(dp[i][k]+dp[k+1][j])+\sum^j_inum[i]
+$$
+$dp[i][j]$ 表示以 $i$ 为起点，$j$ 为终点的区间合并成一堆所取到的最大。因为无论如何合并，本次合并所付出的代价相同，均为 $\sum^j_inum[i]$。&lt;/p&gt;
+&lt;p&gt;所以，我们只需要考虑如何搞才能让合并前的两堆的代价之和最大即可。&lt;/p&gt;
+&lt;p&gt;方法就是遍历中间点 $k$，表示两堆的分割点，也就遍历了所有可能的合并情况，从中取最优，这也正是区间dp的精华所在。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;我们发现，跑完之后的dp数组中成三角形，这也正是区间dp区别于线性dp最显而易见的地方。&lt;/p&gt;
+&lt;h3 id=&#34;环&#34;&gt;环&lt;/h3&gt;
+&lt;p&gt;很多时候，题目中会给出“……连成一个环”。&lt;/p&gt;
+&lt;p&gt;这似乎，又是一个很难很难的问题……&lt;/p&gt;
+&lt;p&gt;不，聪明的人类总是有&lt;del&gt;流氓&lt;/del&gt;的做法。&lt;/p&gt;
+&lt;p&gt;其实，就是把原来的数组在结尾在拼接一个一样的，但是最长的区间长度不变即可。(注意遍历时区间起止点的坐标范围和 $+1$ 问题)&lt;/p&gt;
+&lt;h2 id=&#34;几道题&#34;&gt;几道题&lt;/h2&gt;
+&lt;p&gt;莫得办法，dp这玩意只能用题去体会。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 树形dp</title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%A0%91%E5%BD%A2dp/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E6%A0%91%E5%BD%A2dp/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;树形dp&#34;&gt;树形dp&lt;/h1&gt;
+&lt;h2 id=&#34;树上最大独立集问题&#34;&gt;树上最大独立集问题&lt;/h2&gt;
+&lt;p&gt;树形dp最经典的问题。&lt;/p&gt;
+&lt;h3 id=&#34;问题详情&#34;&gt;问题详情&lt;/h3&gt;
+&lt;p&gt;一句话：给一棵大小为 $n$ 的树，求最大点权独立集。&lt;/p&gt;
+&lt;p&gt;先来看一下啥是独立集，再考虑最大点权的问题。&lt;/p&gt;
+&lt;p&gt;选出一些顶点使得这些顶点两两不相邻，则这些点构成的集合称为独立集。&lt;/p&gt;
+&lt;p&gt;**最大点权：**即在所有可能存在的独立集中，点权之和(若没有点权，则认为所有点的点权都是$1$)最大的称为最大点权独立集。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;聪明的你立刻联想到了最大独立集=最大匹配！&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;醒醒，二分图匹配没有点权。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;因此，我们要使用dp思想！&lt;/p&gt;
+&lt;p&gt;首先，解决第一个问题——很可能题目并没有指定根节点($root$)，而仅仅给了你一个无向连通图($n$ 个节点 $n-1$ 条边，保证任意两两节点连通)&lt;/p&gt;
+&lt;p&gt;我们直接任意选择一个作为根($root$)不就完了嘛！&lt;del&gt;就是这么简单粗暴&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E6%A0%91%E5%BD%A2dp.assets/ea711e92b4b28994d0dea763f041320f.png&#34; alt=&#34;fa&#34; style=&#34;zoom:70%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;对于整个大问题，dp就是不断求解一个个小问题的过程。&lt;/p&gt;
+&lt;p&gt;对于任意一个节点，状态只有两种：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在最大点权独立集中。&lt;/li&gt;
+&lt;li&gt;不在最大点权独立集中。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因此，我们用 $dp[i][0]$ 表示节点 $i$ 不在独立集中时以节点 $i$ 为根的树的最大点权独立集；用 $dp[i][1]$ 表示节点 $i$ 在独立集中时以节点 $i$ 为根的树的最大点权独立集。&lt;/p&gt;
+&lt;p&gt;状态转移方程:
+$$
+\begin{aligned}
+&amp;amp;dp[i][1]=\sum dp[son[i][a]][0]\space+val[i]
+\&amp;amp;dp[i][0]=\sum max(dp[son[i][a]][0],dp[son[i][a]][1])
+\end{aligned}
+$$
+$son[i][a]$ 记录节点 $i$ 的儿子。&lt;/p&gt;
+&lt;p&gt;如果节点 $i$ 在独立集中，则 $i$ 的任何儿子一定不在独立集中。因此，我们只需要把以 $i$ 的儿子们为根且根节点不在独立集中的最大独立集求和再加上节点 $i$ 的点权，就得到正确的解。&lt;/p&gt;
+&lt;p&gt;而如果节点 $i$ 不在独立集中，则 $i$ 的儿子在与不在均可。因此，我们要把以 $i$ 的儿子们为根的最大独立集(因此要在根节点在和不在两个中取最大值)求和即可。&lt;/p&gt;
+&lt;p&gt;而dp完成后，可得到 $ans=max(dp[root][0],dp[root][1])$。&lt;/p&gt;
+&lt;p&gt;至于如何遍历一棵树，当然是&lt;a href=&#34;../graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.md&#34;&gt;DFS&lt;/a&gt;！&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;install-apps&#34;&gt;install APPs！&lt;/h2&gt;
+&lt;p&gt;众所周知(就算你不知，现在也知了)，背包是可以挂在树上的。&lt;/p&gt;
+&lt;p&gt;433大大的疑惑：现在，433明白，自己需要 $n$ 个软件，并且假设她清楚每个软件所需要的安装时间 $w[i]$ 以及实用价值(搞完之后$jj$们能获得的满足感) $val[i]$ (虽然但是这并不可能)，而她因为要练习~~(不，因为烦躁)~~，只有 $m$ 的时间来搞这些事情(否则将因个人原因摧残与迫害电脑)。但是，众所周知(虽然但是可能433不知)，某一些软件依赖于其他软件(这里，我们规定若存在依赖，有且仅有一个依赖项)，如：美颜相机依赖于摄像头驱动——一种433不会搞的东西($jj$们为此卖力的教)，所以，安装任何软件之前，都应确保其依赖的软件全部安装。问能取得的最大价值是多少。&lt;/p&gt;
+&lt;p&gt;由上述问题我们发现，软件之间具有依赖关系，一般地，某个物品的依赖物品只有一个~~(如果有多个的话可以考虑把出题人挂在树上)~~(但某个物品可以同时被多个物品依赖)，且依赖关系可以表示为一棵树：如果选择一个物品，则必须选择它的父节点。&lt;/p&gt;
+&lt;p&gt;比如，若我们规定 $a$ 依赖于 $b$ 表示为 $a\rightarrow{b}$，则
+$$
+b\rightarrow{a}
+\c\rightarrow{a}
+\d\rightarrow{a}
+\e\rightarrow{b}
+\f\rightarrow{b}
+\g\rightarrow{c}
+$$&lt;/p&gt;
+&lt;p&gt;可以用下图表示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E6%A0%91%E5%BD%A2dp.assets/graph%20(1).png&#34; alt=&#34;fadf&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
+&lt;h3 id=&#34;思路&#34;&gt;思路&lt;/h3&gt;
+&lt;p&gt;背包和树形dp结合，转化为分组背包问题。&lt;/p&gt;
+&lt;p&gt;首先，我们明确，进行树形dp时我们是&lt;strong&gt;从下至上&lt;/strong&gt;进行的，因此我们对节点 $i$ 进行状态转移时，节点 $i$ 的所有儿子的dp值是已知的。&lt;/p&gt;
+&lt;p&gt;$dp[i][j]$ 表示以节点 $i$ 为根的树中背包容量为 $j$ 时所能取得的最大价值。&lt;/p&gt;
+&lt;p&gt;由图的意义我们可以得知，如果要选择以节点 $i$ 为根节点的树中任意一个节点，都必须选择节点 $i$ (必须按照深度逐一装)。&lt;/p&gt;
+&lt;p&gt;因此，留给节点 $i$ 的儿子们的空间只有 $j-w[i]$。我们要在节点 $i$ 的 $k$ 个儿子中，每个儿子分配 $t_k$ 的背包空间，使得 $\sum_{a=1}^kdp[son[i][a]][t_a]\space|\sum_{a=1}^kt_a=j-w[i]$ 最大。&lt;/p&gt;
+&lt;p&gt;对此，我们直接进行三重循环即可。因此，时间复杂度为 $O(n^3)$。&lt;/p&gt;
+&lt;h3 id=&#34;环&#34;&gt;环&lt;/h3&gt;
+&lt;p&gt;我们知道一般图上是无法dp的。因为图上的环会导致&lt;strong&gt;循环转移&lt;/strong&gt;，即存在后效性(求出的dp值可能不正确)。这在dp问题中是不允许存在的。&lt;/p&gt;
+&lt;p&gt;一般图转化为无环图的主要方法是将强连通分量缩成一个点。&lt;/p&gt;
+&lt;p&gt;依赖性背包中的强连通分量就是一个环。环中的每个点&lt;strong&gt;或者全选，或者全不选&lt;/strong&gt;，因此可以缩点。&lt;/p&gt;
+&lt;p&gt;将强连通分量中的每个点的重量求和作为新点的重量，价值求和作为新点的价值。&lt;/p&gt;
+&lt;p&gt;剩下的就是依赖性背包板子了。&lt;/p&gt;
+&lt;h3 id=&#34;最后的一点儿&#34;&gt;最后的一点儿&lt;/h3&gt;
+&lt;p&gt;我们将所有依赖关系连边之后就形成一张&lt;strong&gt;图&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果没有“循环依赖”关系（即环），这些依赖关系就形成若干棵外向树，即&lt;strong&gt;外向树森林&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;建立虚拟根节点，价值和重量均为 $0$，并将所有没有依赖的物品都与 $root$ 连边，则转化为一棵外向树。&lt;/p&gt;
+&lt;h2 id=&#34;基环树上的dp&#34;&gt;基环树上的dp&lt;/h2&gt;
+&lt;h3 id=&#34;首先&#34;&gt;首先&lt;/h3&gt;
+&lt;p&gt;在学习基环树上的dp之前，就得先把标题看懂——了解奇环树是啥。&lt;/p&gt;
+&lt;p&gt;奇环树，就是：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;在一棵树上增加一条边。&lt;/li&gt;
+&lt;li&gt;个树上有一个环。&lt;/li&gt;
+&lt;li&gt;有 $n$ 个点和 $m$ 条边的无向连通图。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;奇环树的情况：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;无向&lt;img src=&#34;%E6%A0%91%E5%BD%A2dp.assets/FRnQMj.png&#34; alt=&#34;fadf&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;有向
+&lt;ol&gt;
+&lt;li&gt;基环外向树(每个点只有一条入边)。&lt;img src=&#34;%E6%A0%91%E5%BD%A2dp.assets/FRnlss.png&#34; alt=&#34;adf&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/li&gt;
+&lt;li&gt;基环内向树(每个点只有一条出边)。&lt;img src=&#34;%E6%A0%91%E5%BD%A2dp.assets/FRn1Ln.png&#34; alt=&#34;fds&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;因为奇环树的边数 $-1$ 便形成了一棵树，因此仍将其视作”树”来解决问题。&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;（没看懂）每个点只和一个点连边所形成的无向图一定是一片基环树森林。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;对于这种&lt;del&gt;恶心&lt;/del&gt;的树，我们也采取一种暴力的手段来对付，就是在环上任意删一条边，然后转化为一棵树，跑树形dp即可。&lt;/p&gt;
+&lt;h3 id=&#34;找环&#34;&gt;找环&lt;/h3&gt;
+&lt;p&gt;不管你对于出题人命制的题目有多大的意见~~(tmd，为神魔有环——优美中国话)~~，你都得一步步来——先找到环。&lt;/p&gt;
+&lt;p&gt;找到一条边即可，不需要记录所有环上节点。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;无向图：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;你飞速的撸出了一窜&lt;a href=&#34;../graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.md&#34;&gt;拓扑排序&lt;/a&gt;的模板。&lt;/li&gt;
+&lt;li&gt;接着，恭喜，环找到了。(入度 $\ge{2}$ 的点就是环上的点，和上一个被访问的点之间的边一定是环边)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;有向图：&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;你疯狂的搞出了一份DFS标准模板，调试完成。&lt;/li&gt;
+&lt;li&gt;恭喜，环也找到了。(DFS时若某一个节点被访问第二次，即是环上的点，和上一个被访问的点之间的边一定是环边)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;round-1&#34;&gt;round $1$&lt;/h3&gt;
+&lt;p&gt;但是注意，当我们删去边 $u\rightarrow{v}$ 并以节点 $u$ 为根跑树形dp后，虽然进行了删边操作，但实际上是有的，因此节点 $u$ 和节点 $v$ 仅能选择其中一个，从而出现两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$dp[u][0]$ 表示强制不选节点 $u$，因此对于节点 $v$ 是否选择无限制，此情况一定成立。&lt;/li&gt;
+&lt;li&gt;$dp[u][1]$ 表示强制选择节点 $u$，这时候节点 $v$ 必定不可以选择，但是我们并不清楚节点 $v$ 的选择情况，所以这个dp值在某些情况下是错误的，不能取。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;$dp[u][0]$ 对于节点 $u$ 和 $v$ 的选和不选两种状态的覆盖情况为：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;节点&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;选&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;不选&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$u$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\times$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\checkmark$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$v$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\checkmark$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$\checkmark$&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;因此，我们需要考虑一下一定选择 $u$ 节点的情况，因此，我们以节点 $v$ 为根再跑一遍树状dp，而 $dp[v][0]$ 就包含了选择节点 $u$ 的情况。&lt;/p&gt;
+&lt;p&gt;最后，我们需要在两种情况下选择较大值 $max(dp[u][0],dp[v][0])$ 即可。&lt;/p&gt;
+&lt;h3 id=&#34;round-2&#34;&gt;round $2$&lt;/h3&gt;
+&lt;p&gt;对于这个选与不选的问题，还有一种思考的维度。&lt;/p&gt;
+&lt;p&gt;我们考虑节点 $u$ 可能的两种情况：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;$dp[u][0]$ 强制不选，这时对节点 $v$ 的状态没有要求，不做处理，正常跑dp即可。、&lt;/li&gt;
+&lt;li&gt;$dp[i][1]$ 强制选择，这时节点 $v$ 必须不选，因此，再跑一次dp，将 $dp[v][1]$ 初始化为 $-\infty$ (表示不存在这种情况，进行dp时是不会选择如此不好的节点的，强制保证了不选节点 $v$)。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;外向dag&#34;&gt;外向DAG&lt;/h3&gt;
+&lt;p&gt;每个点都有且只有一个&lt;strong&gt;入度&lt;/strong&gt;，并且环内的节点方向指向环外，因此任何一个点沿着唯一入边走都会走到环上。&lt;/p&gt;
+&lt;h3 id=&#34;内向dag&#34;&gt;内向DAG&lt;/h3&gt;
+&lt;p&gt;每个点都有且只有一个&lt;strong&gt;出度&lt;/strong&gt;，并且环外的节点方向指向环内，因此任何一个点沿着唯一出边走都会走到环上。&lt;/p&gt;
+&lt;h2 id=&#34;有向无环图dag上的dp拓扑序graph图论拓扑排序mddp&#34;&gt;有向无环图(DAG)上的dp(&lt;a href=&#34;../graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.md&#34;&gt;拓扑序&lt;/a&gt;dp)&lt;/h2&gt;
+&lt;p&gt;因为有向无环图有拓扑序，所以我们按拓扑序转移即可保证无后效性(即改变已经访问过的节点)。&lt;/p&gt;
+&lt;p&gt;DAG上的dp可以在 $O(n+m)$ 的时间复杂度内解决&lt;strong&gt;DAG上最短/最长路、最短路计数&lt;/strong&gt;等基本问题。&lt;/p&gt;
+&lt;h2 id=&#34;其他应用一些奇怪的题的题解&#34;&gt;其他应用(一些奇怪的题的题解)&lt;/h2&gt;
+&lt;p&gt;&lt;del&gt;有时间再补&lt;/del&gt;&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 状压dp</title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9dp/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9dp/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;状压dp&#34;&gt;状压dp&lt;/h1&gt;
+&lt;p&gt;又是二进制的东西……&lt;del&gt;烦躁&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;这东西只是一个辅助，用来优化暴力或dp空间的。&lt;/p&gt;
+&lt;h2 id=&#34;用武之地&#34;&gt;用武之地&lt;/h2&gt;
+&lt;p&gt;当状态维数 $n$ 很多但每一维状态数 $k$ 都很少(一般是 $2$)的时候，我们可以用一个 $n$ 位 $k$ 进制整数来表示这维状态。&lt;/p&gt;
+&lt;p&gt;下面，我们单表状态数为 $2$ 的情况。&lt;/p&gt;
+&lt;p&gt;在学习状压dp之前，我们应该清楚所有的dp是解决&lt;strong&gt;多&lt;/strong&gt;阶段&lt;strong&gt;决策最&lt;/strong&gt;优化问题的一种思想方法。请注意&lt;strong&gt;多阶段&lt;/strong&gt;这三个字，如何定义状态是动态规划最重要的一步。状态的定义也就决定了阶段的划分。&lt;/p&gt;
+&lt;p&gt;动态规划多阶段一个&lt;strong&gt;重要&lt;/strong&gt;的特性就是&lt;strong&gt;无后效性&lt;/strong&gt;(值对于某个给定的阶段状态，它以前各阶段的状态无法直接影响它未来的发展，而只能通过当前的这个状态。换句话说影响当前阶段状态只可能是前一阶段的状态，而不能是后续的状态)&lt;/p&gt;
+&lt;p&gt;那么可以看出如何&lt;strong&gt;定义状态&lt;/strong&gt;是至关重要的，因为状态决定了阶段的划分，阶段的划分保证了无后效性。&lt;/p&gt;
+&lt;p&gt;因此，我们为了保证无后效性，通常要在转移的时候带上足够的数据(很可能是一个数组)，这时的空间开销就会很大，因此我们把原数组中的每一位表示为某一个数字的某一位，这样只需要携带 $O(1)$ 的空间转移了。&lt;/p&gt;
+&lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
+&lt;p&gt;我们回想&lt;a href=&#34;./%E8%83%8C%E5%8C%85%E9%97%AE%E9%A2%98.md&#34;&gt;01背包&lt;/a&gt;，如果我们要让你记录一下具体是怎么装的如何？当时，我们给出了反向迭代推导的方法。&lt;/p&gt;
+&lt;p&gt;但是，我们也可以在每次dp决策的时候就记录一下，并带着选择的方式转移，这样我们就不用回溯了(典型的牺牲空间换取时间的办法)。&lt;/p&gt;
+&lt;p&gt;我们开了一个数组，&lt;code&gt;bool ji[n][k][n]&lt;/code&gt;(虽然可以一维优化)，但是我十分不爽，这搞的空间过大了！&lt;/p&gt;
+&lt;p&gt;所以，我们想起了状压dp，因此，我们现在要降成二维&lt;code&gt;int ji[n][k]&lt;/code&gt;，$ji[i][j]$ 表示对应dp表第 $i$ 行第 $j$ 列的选择方式：第 $1$ 个物品对应 $ji[i][j]$ 第一位的 $0/1$，第 $2$ 个对应第二位的 $0/1\space\dots\dots$&lt;/p&gt;
+&lt;p&gt;然后，我们把这个二进制数存在一个&lt;code&gt;int&lt;/code&gt;里不就可了嘛，这样你就塞下了 $32$ 位的状态，真香。&lt;/p&gt;
+&lt;h2 id=&#34;从-on-到-o2n&#34;&gt;从 $O(n!)$ 到 $O(2^n)$&lt;/h2&gt;
+&lt;p&gt;状压dp是最接近暴力的一种dp，因为它可以完整地记录每一种状态。&lt;/p&gt;
+&lt;p&gt;但它又比 $O(n!)$ 的纯暴力搜索要优一些，因为它舍弃了状态的更新顺序的记录。&lt;/p&gt;
+&lt;p&gt;所以很多情况下，状压dp就是将 $O(n!)$ 的暴力优化到的另一个 $O(2^n)$ 暴力的过程。&lt;/p&gt;
+&lt;h2 id=&#34;子集枚举&#34;&gt;子集枚举&lt;/h2&gt;
+&lt;h2 id=&#34;合理运用小范围数据&#34;&gt;合理运用小范围数据&lt;/h2&gt;
+&lt;p&gt;状压dp中 $2^n$ 的复杂度使得题目中的某些数据范围也会很小（一般在 $25$ 以下）。当遇到 $\le{25}$ 数据范围时一定要敏感。&lt;/p&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: </title>
+      <link>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/manacher%E7%AE%97%E6%B3%95/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/dp%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/manacher%E7%AE%97%E6%B3%95/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

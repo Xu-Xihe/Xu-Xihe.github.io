@@ -1,0 +1,85 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seine – 基本思想</title>
+    <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/</link>
+    <description>Recent content in 基本思想 on Seine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sun, 17 Oct 2021 00:00:00 +0000</lastBuildDate>
+    
+	  <atom:link href="/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>OIblogs: 递推和递归</title>
+      <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E9%80%92%E5%BD%92%E9%80%92%E6%8E%A8/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E9%80%92%E5%BD%92%E9%80%92%E6%8E%A8/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;递推&#34;&gt;递推&lt;/h1&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 分治（二分）</title>
+      <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%88%86%E6%B2%BB%E4%BA%8C%E5%88%86/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%88%86%E6%B2%BB%E4%BA%8C%E5%88%86/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 贪心</title>
+      <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E8%B4%AA%E5%BF%83/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E8%B4%AA%E5%BF%83/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 倍增</title>
+      <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%80%8D%E5%A2%9E/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%80%8D%E5%A2%9E/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;倍增&#34;&gt;倍增&lt;/h1&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>OIblogs: 三分</title>
+      <link>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E4%B8%89%E5%88%86/</link>
+      <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E4%B8%89%E5%88%86/</guid>
+      <description>
+        
+        
+        
+      </description>
+    </item>
+    
+  </channel>
+</rss>

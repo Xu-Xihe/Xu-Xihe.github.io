@@ -1,0 +1,307 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seine – 学习</title>
+    <link>/tags/%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 学习 on Seine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/tags/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Tools-Others: 化学</title>
+      <link>/tools-others/study/%E5%8C%96%E5%AD%A6/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools-others/study/%E5%8C%96%E5%AD%A6/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;溶解性表&#34;&gt;溶解性表&lt;/h1&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;阳离子\阴离子&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$OH-$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$NO_3^-$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$Cl^-$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$SO_4^{2-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$CO_3^{2-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$S^{2-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$SO_3^{2-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$SiO_3^{2-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$PO_4^{3-}$&lt;/th&gt;
+&lt;th style=&#34;text-align:center&#34;&gt;$CH_3COO^-(Ac^-)$&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$H^+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;font color=&#34;blue&#34;&gt;$H_2O$&lt;/font&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;微&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$NH_4^+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶、挥&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$K+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Na^+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Ba^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Ca^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;微&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;微&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Mg^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;微&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;微&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Al^{3+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Mn^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Zn^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Fe^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Fe^{3+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Cu^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Ag^+$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;——&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;微&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;$Pb^{2+}$&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;微&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;不&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;溶&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;说明：&lt;/strong&gt;“溶”表示某种物质可溶于水，“不”表示不溶于水，“微”表示微溶于水，“挥”表示挥发性，“——”表示那种物质不存在或遇到水就分解了，为空表示一般用不到~~(用的时候再说)~~。&lt;/p&gt;
+&lt;h3 id=&#34;背诵方法&#34;&gt;背诵方法(?)&lt;/h3&gt;
+&lt;p&gt;&lt;del&gt;其实可以看做是个概括总结&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;钾钠硝铵醋可溶，氯除银铅(微溶)均可溶。&lt;/p&gt;
+&lt;p&gt;氢氧只溶钾钠钡(钙微溶)，硫酸沉钙(微溶)钡银铅。&lt;/p&gt;
+&lt;p&gt;碳亚硫硅磷酸硫，除钾钠铵均不溶。&lt;/p&gt;
+&lt;p&gt;银除硝酸都不溶(硫酸银微溶)，单独记忆五微溶。&lt;/p&gt;
+&lt;h1 id=&#34;电解质&#34;&gt;电解质&lt;/h1&gt;
+&lt;h2 id=&#34;酸&#34;&gt;酸&lt;/h2&gt;
+&lt;h3 id=&#34;强酸&#34;&gt;强酸&lt;/h3&gt;
+&lt;p&gt;$HCl$、$H_2SO_4$、$HNO_3$、$HClO_4$(高氯酸)、$HI$(氢碘酸)、$HBr$(氢溴酸)&lt;/p&gt;
+&lt;h3 id=&#34;中强酸&#34;&gt;中强酸&lt;/h3&gt;
+&lt;p&gt;$H_2SO_3$(亚硫酸)、$H_3PO_4$(磷酸)、$H_2C_2O_4$(草酸)&lt;/p&gt;
+&lt;h3 id=&#34;较弱酸&#34;&gt;较弱酸&lt;/h3&gt;
+&lt;p&gt;$H_2CO_3$、$CH_3COOH$(醋酸，又写作 $HAc$)、$HF$(氢氟酸)&lt;/p&gt;
+&lt;h3 id=&#34;弱酸&#34;&gt;弱酸&lt;/h3&gt;
+&lt;p&gt;$H_2S$(氢硫酸)、$HClO$(次氯酸)、$H_2SiO_3$(硅酸)&lt;/p&gt;
+&lt;h2 id=&#34;碱&#34;&gt;碱&lt;/h2&gt;
+&lt;h3 id=&#34;强碱&#34;&gt;强碱&lt;/h3&gt;
+&lt;p&gt;$KOH$、$NaOH$、$Ca(OH)_2$、$Ba(OH)_2$&lt;/p&gt;
+&lt;h3 id=&#34;弱碱&#34;&gt;弱碱&lt;/h3&gt;
+&lt;p&gt;$NH_3\cdot H_2O$、难溶性的碱&lt;/p&gt;
+&lt;h1 id=&#34;氧化还原&#34;&gt;氧化还原&lt;/h1&gt;
+&lt;h2 id=&#34;氧化性&#34;&gt;氧化性&lt;/h2&gt;
+&lt;p&gt;$I_2&amp;lt;Fe^{3+}&amp;lt;Br_2&amp;lt;Cl_2$&lt;/p&gt;
+&lt;h2 id=&#34;强氧化剂&#34;&gt;强氧化剂&lt;/h2&gt;
+&lt;p&gt;$MnO_4$ 、$ClO^-$ 、$Fe^{3+}$ 、$NO_3^-+H^+$ 、$Cr_2O_7^{2-}$&lt;/p&gt;
+&lt;h2 id=&#34;还原性&#34;&gt;还原性&lt;/h2&gt;
+&lt;p&gt;$I^-&amp;gt;Fe^{3+}&amp;gt;Br^-&amp;gt;Cl^-$&lt;/p&gt;
+&lt;p&gt;金属单质&lt;/p&gt;
+&lt;h2 id=&#34;强还原剂&#34;&gt;强还原剂&lt;/h2&gt;
+&lt;p&gt;$S^{2-}$ 、$I^-$ 、$SO_3^{2-}$ 、$Fe^{2+}$ 、$S_2O_3^{2-}$ 、$C_2O_4^{2-}$&lt;/p&gt;
+&lt;h1 id=&#34;na钠&#34;&gt;Na钠&lt;/h1&gt;
+&lt;h2 id=&#34;物理性质&#34;&gt;物理性质&lt;/h2&gt;
+&lt;h2 id=&#34;化学性质&#34;&gt;化学性质&lt;/h2&gt;
+&lt;h2 id=&#34;氧化物&#34;&gt;氧化物&lt;/h2&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Tools-Others: 物理</title>
+      <link>/tools-others/study/%E7%89%A9%E7%90%86/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/tools-others/study/%E7%89%A9%E7%90%86/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;速度加速度位移时间&#34;&gt;速度、加速度、位移、时间&lt;/h1&gt;
+&lt;h2 id=&#34;矢量&#34;&gt;矢量&lt;/h2&gt;
+&lt;p&gt;有大小，有方向。注意区分矢量大小与矢量。&lt;/p&gt;
+&lt;h2 id=&#34;匀加速运动&#34;&gt;匀加速运动&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;声明：&lt;/strong&gt;$v$ 表示瞬时速度，$\overline{v}$ 表示平均速度，$v_0$ 表示初速度，$x$ 表示位移，$t$ 表示时间，$a$ 表示加速度。单位均为国际单位。&lt;/p&gt;
+&lt;p&gt;$v=v_0+at$&lt;/p&gt;
+&lt;p&gt;$x=v_0t+\frac{1}{2}at^2$&lt;/p&gt;
+&lt;p&gt;$v^2+{v_0}^2=2ax$&lt;/p&gt;
+&lt;p&gt;$\overline{v}=\frac{x}{t}=\frac{v_0+v}{2}$&lt;/p&gt;
+&lt;p&gt;中间时刻瞬时速度：$v_{\frac{t}{2}}=\frac{x}{t}=\frac{v_0+v}{2}$&lt;/p&gt;
+&lt;p&gt;中间位移瞬时速度：$v_{\frac{x}{2}}=\sqrt{\frac{{v_0}^2+v^2}{2}}$&lt;/p&gt;
+&lt;p&gt;初速度 $v_0=0$ 的匀加速直线运动相等时间内位移比：$1:3:5:7:,\dots,:2n+1,(n\in{N^*})$&lt;/p&gt;
+&lt;p&gt;初速度 $v_0=0$ 的匀加速直线运动通过相等位移所用时间的比：$1:\sqrt{2}-1:\sqrt{3}-\sqrt{2}:2-\sqrt{3}:,\dots,:\sqrt{n+1}-\sqrt{n}$&lt;/p&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>

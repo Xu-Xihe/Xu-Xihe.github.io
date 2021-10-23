@@ -1,0 +1,69 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seine – 技术杂谈</title>
+    <link>/tools-others/technology/</link>
+    <description>Recent content in 技术杂谈 on Seine</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	  <atom:link href="/tools-others/technology/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+      
+        
+      
+    
+    
+    <item>
+      <title>Tools-Others: Ubuntu字体</title>
+      <link>/tools-others/technology/ubuntu-font/</link>
+      <pubDate>Thu, 21 Oct 2021 23:48:23 +0800</pubDate>
+      
+      <guid>/tools-others/technology/ubuntu-font/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;ubuntu-字体&#34;&gt;Ubuntu 字体&lt;/h1&gt;
+&lt;h2 id=&#34;引言&#34;&gt;引言&lt;/h2&gt;
+&lt;p&gt;众所周知，&lt;code&gt;Ubuntu&lt;/code&gt; 是一个著名的Linux开源发行版。但是，开源……这就意味着，那些不开源的字体用不了！&lt;/p&gt;
+&lt;p&gt;所以，本着&lt;del&gt;开源&lt;/del&gt;务实的精神，我们要安装字体。（除非你想每天都被你的老师叫过去解决PPT的各种奇奇怪怪的问题）&lt;/p&gt;
+&lt;p&gt;而字体文件？当然是，Windows！&lt;del&gt;虽然，有些blabla&lt;/del&gt;&lt;/p&gt;
+&lt;h2 id=&#34;复制字体&#34;&gt;复制字体&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;如果你的网络不好，可以选择从一台安装有Windows系统的计算机进行拷贝。将 &lt;code&gt;C:\Windows\Fonts&lt;/code&gt; 目录中的所有文件拷贝到移动介质中待用。&lt;/li&gt;
+&lt;li&gt;如果你的网络尚可或者你身边并没有一台Windows电脑，则可以&lt;a href=&#34;https://gitee.com/xu-xihe/windos-fonts&#34;&gt;点击这里&lt;/a&gt;进行下载后解压。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;安装字体&#34;&gt;安装字体&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;移动所有字体文件致 &lt;code&gt;/usr/share/fonts/&lt;/code&gt; 或者其子文件夹中。注意，如果你想要进行分类的话，可以自行新建子文件夹。&lt;/li&gt;
+&lt;li&gt;修改字体文件权限，使得所有用户都可以访问，请执行 &lt;code&gt;sudo chmod -R /usr/share/fonts/{yourname} 755&lt;/code&gt;。若不清楚是否执行成功，请跳过并继续。&lt;/li&gt;
+&lt;li&gt;运行 &lt;code&gt;mkfontscale&lt;/code&gt; 。若提示 &lt;code&gt;mkfontscale: command not found&lt;/code&gt;，则先执行 &lt;code&gt;sudo apt-get install ttf-mscorefonts-installer&lt;/code&gt; 后重试。&lt;/li&gt;
+&lt;li&gt;运行 &lt;code&gt;mkfontdir&lt;/code&gt; 和 &lt;code&gt;fc-cache -fv&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;打开字体管理器，确认安装。&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+    <item>
+      <title>Tools-Others: Ubuntu关机1min30s</title>
+      <link>/tools-others/technology/ubuntu-90s/</link>
+      <pubDate>Thu, 21 Oct 2021 23:24:13 +0800</pubDate>
+      
+      <guid>/tools-others/technology/ubuntu-90s/</guid>
+      <description>
+        
+        
+        &lt;h1 id=&#34;ubuntu关机1min30s&#34;&gt;Ubuntu关机1min30s&lt;/h1&gt;
+&lt;p&gt;通常情况下，他会显示一个啥啥啥 is running，然后后面有一个括号 &lt;code&gt;(..s/1min30s)&lt;/code&gt; 这种。&lt;/p&gt;
+&lt;h2 id=&#34;解决方法&#34;&gt;解决方法&lt;/h2&gt;
+&lt;p&gt;虽然我们并不知道为啥，但是我们确实有一种解决的方法。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;用root权限（其实就是加个 &lt;code&gt;sudo&lt;/code&gt;）编辑 &lt;code&gt; /etc/systemd/system.conf&lt;/code&gt;，找到里面有一个 &lt;code&gt;DefaultTimeoutStopSec=90s&lt;/code&gt;，把行首的 &lt;code&gt;#&lt;/code&gt; 去掉，并改成 &lt;code&gt;DefaultTimeoutStopSec=1ms&lt;/code&gt;，保存，退出。&lt;/li&gt;
+&lt;li&gt;执行 &lt;code&gt;sudo systemctl daemon-reload&lt;/code&gt; 更新配置文件。&lt;/li&gt;
+&lt;/ol&gt;
+
+      </description>
+    </item>
+    
+  </channel>
+</rss>
