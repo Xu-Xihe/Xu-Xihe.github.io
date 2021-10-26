@@ -25,7 +25,7 @@ $$
 
 ## 二分解法
 
-[二分在这边](../basic基本思想/分治（二分）.md)
+[二分在这边](/oiblogs/basic基本思想/分治/)
 
 假设答案为 $ans$
 $$
@@ -47,7 +47,4 @@ $$
 
 通过判断图内是否存在负环来调整二分界限
 
-![fa](https://img-blog.csdnimg.cn/20210213120449912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0toYXNlaGVtd3k=,size_16,color_FFFFFF,t_70)
-
-![adfdf](01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0toYXNlaGVtd3k=,size_16,color_FFFFFF,t_70.png)
-
+![fa](https://img-blog.csdnimg.cn/20210213120449912.png)

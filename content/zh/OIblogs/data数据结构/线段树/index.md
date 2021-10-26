@@ -27,7 +27,7 @@ description: >
 
 规定根结点编号为 $1$​​​​​​，编号为 $i$​​​​​​ 的结点的两个子结点（若存在）编号为 $2i$​ ​​​​​与 $2i+1$ ​​​​​​。这样定义的结点编号最大不会超过 $4n$​​​​​。
 
-一棵维护最小值的线段树大概长这样：<img src="%E7%BA%BF%E6%AE%B5%E6%A0%91.assets/src=http%253A%252F%252Fimg-blog.csdnimg.cn%252Fimg_convert%252F1809e9bc319190c55e869070f02a058f.png&refer=http%253A%252F%252Fimg-blog.csdnimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg" alt="线段树" style="zoom: 40%;" />
+一棵维护最小值的线段树大概长这样：<img src="src=http%253A%252F%252Fimg-blog.csdnimg.cn%252Fimg_convert%252F1809e9bc319190c55e869070f02a058f.png&refer=http%253A%252F%252Fimg-blog.csdnimg.cn&app=2002&size=f9999,10000&q=a80&n=0&g=0n&fmt=jpeg" alt="线段树" style="zoom: 40%;" />
 
 ## 线段树所占空间的计算
 

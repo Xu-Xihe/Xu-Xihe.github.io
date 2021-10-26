@@ -18,7 +18,7 @@ description: >
 
 如下图，欧几里得距离为<font color="red">线段d</font>的长度。
 
-<img src="%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export.png" alt="adf" style="zoom:16%;" />
+<img src="geogebra-export.png" alt="adf" style="zoom:16%;" />
 
 $S=\sqrt{\abs{1-3}^2+\abs{5-2}^2}\approx3.61$
 
@@ -28,7 +28,7 @@ $S=\sqrt{\abs{1-3}^2+\abs{5-2}^2}\approx3.61$
 
 如下图，曼哈顿距离为<font color="red">线段d和线段g</font>的长度之和。
 
-<img src="%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export-16292841405421.png" alt="adsf" style="zoom:16%;" />
+<img src="geogebra-export-16292841405421.png" alt="adsf" style="zoom:16%;" />
 
 $S=\abs{5-2}+\abs{1-3}=3+2=5$
 
@@ -38,7 +38,7 @@ $S=\abs{5-2}+\abs{1-3}=3+2=5$
 
 如下图，切比雪夫距离为<font color="red">线段d和线段g</font>中长度较大的那一个，即<font color="red">线段d</font>。
 
-<img src="%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export-16292841405421.png" alt="fa" style="zoom:16%;" />
+<img src="geogebra-export-16292841405421.png" alt="fa" style="zoom:16%;" />
 
 $S=max(\abs{5-2},\abs{1-3})=max(3,2)=3$
 

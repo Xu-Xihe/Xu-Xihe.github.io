@@ -12,7 +12,7 @@ description: >
 
 一种极致优化的树上算法，据说07年被某个集训队队员搞出来的。
 
-关于DFN序，参见[搜索.md](./搜索.md)。
+关于DFN序，参见[搜索](/oiblogs/graph图论/搜索/搜索/)。
 
 ## 一波约定
 
@@ -40,7 +40,7 @@ description: >
 
 看一个例子：
 
-<img src="%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.png" alt="adf" style="zoom:80%;" />
+<img src="%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.png" alt="adf" style="zoom:80%;" />
 
 其中，<font color="ffbf00">黄色节点</font>为其父亲节点的<font color="ffbf00">重儿子</font>，白色为轻儿子；<font color="red">红色边</font>为<font color="red">重边</font>，黑色为轻边；<font color="green">绿色底</font>为<font color="green">重链</font>。
 
@@ -122,7 +122,7 @@ inline void dfs2(int now, int t, bool big)
 
 其实，你是**不能**把轻边连成一条链的，看下图：
 
-<img src="%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/graph%20(3)-16332643443841.png" style="zoom:70%;" />
+<img src="graph%20(3)-16332643443841.png" style="zoom:70%;" />
 
 我们观察发现，如果我们将 $9$ 挂到 $3$ 上面的话，就和 $3\rightarrow8\rightarrow10$ 这条重链重了，造成求解的失败。
 

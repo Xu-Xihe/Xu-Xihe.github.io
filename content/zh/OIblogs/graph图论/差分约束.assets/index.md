@@ -33,7 +33,7 @@ $$
 $$
 则根据上述条件，可以建图如下：
 
-<img src="%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/graph.png" alt="adf" style="zoom:95%;" />
+<img src="graph.png" alt="adf" style="zoom:95%;" />
 
 由不等式相加组合，可得到 $max(C-A)=min(b,a+c)$，这也正好对应图中 $A$ 到 $C$ 的最短路。
 

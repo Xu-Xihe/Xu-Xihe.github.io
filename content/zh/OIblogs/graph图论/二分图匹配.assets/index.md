@@ -16,7 +16,7 @@ description: >
 
 形象的描述一下，现在你是某市的市长，而一条大河从你的城市中心穿流而过。所以，你为了使你的城市交通遍历，促进城市发展，你决定在这条河上建桥，以连接河两岸的路口。
 
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E8%8D%89%E7%BA%B8-10.jpg" alt="pi" style="zoom: 33%;" />
+<img src="%E8%8D%89%E7%BA%B8-10.jpg" alt="pi" style="zoom: 33%;" />
 
 如上图，所有河上的桥和路口就组成了一个二分图。
 
@@ -24,7 +24,7 @@ description: >
 
 意思就说，你把一个图的顶点分到河的两岸，图上所有的边只能是桥，不能是陆地上的公路，即不能在河的一侧修建边。
 
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/graph.png" alt="sdafa" style="zoom:67%;" />
+<img src="graph.png" alt="sdafa" style="zoom:67%;" />
 
 区别二分图，关键是看点集是否能分成两个独立的点集。无向图G为二分图的**充要条件**是，$G$ 至少有两个顶点，且其所有环的长度均为偶数，**不存在奇环**。**可以存在偶环**，如上图 $2\rightarrow7\rightarrow3\rightarrow8\rightarrow2$ 就是一个偶环，但上图满足二分图。任何无回路的的图均是二分图。
 
@@ -59,12 +59,12 @@ description: >
 **增广路：**从一个未匹配点出发，走交替路，如果途径另一个未匹配点（出发的点不算），则这条交替路称为增广路。
 
 1. 红色的边为当前的匹配
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF1.png" alt="1" style="zoom:13%;" />
+<img src="%E5%A2%9E%E5%B9%BF%E8%B7%AF1.png" alt="1" style="zoom:13%;" />
 
 2. 紫色的边为当前匹配的增广路
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF2.png" alt="2" style="zoom:13%;" />
+<img src="%E5%A2%9E%E5%B9%BF%E8%B7%AF2.png" alt="2" style="zoom:13%;" />
 3. 将增广路中匹配的边和非匹配变交换，匹配边数 $+1$ 
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF3.png" alt="3" style="zoom:13%;" />
+<img src="%E5%A2%9E%E5%B9%BF%E8%B7%AF3.png" alt="3" style="zoom:13%;" />
 
 ### 匈牙利算法的真面目
 
@@ -150,7 +150,7 @@ $$
 
 **证明：**由最大匹配可知，不存在一条边的两个端点均没有被在最大匹配集合中的边所连接的情况(否则这条边就可以加入匹配)。因此，我们可以将边分为两类：匹配边和非匹配边；也可以将点分为两类：是匹配边的端点和不是匹配边的端点。
 
-<img src="%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E6%9C%80%E5%B0%8F%E7%82%B9%E8%A6%86%E7%9B%96.png" alt="df" style="zoom:13%;" />
+<img src="%E6%9C%80%E5%B0%8F%E7%82%B9%E8%A6%86%E7%9B%96.png" alt="df" style="zoom:13%;" />
 
 如上图，<font color="red">匹配边</font>，非匹配边，<font color="purple">匹配边的端点</font>，<font color="green">不是匹配边的端点</font>。
 

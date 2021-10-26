@@ -34,7 +34,7 @@ description: >
 
 我们直接任意选择一个作为根($root$)不就完了嘛！~~就是这么简单粗暴~~
 
-<img src="%E6%A0%91%E5%BD%A2dp.assets/ea711e92b4b28994d0dea763f041320f.png" alt="fa" style="zoom:70%;" />
+<img src="ea711e92b4b28994d0dea763f041320f.png" alt="fa" style="zoom:70%;" />
 
 对于整个大问题，dp就是不断求解一个个小问题的过程。
 
@@ -60,7 +60,7 @@ $son[i][a]$ 记录节点 $i$ 的儿子。
 
 而dp完成后，可得到 $ans=max(dp[root][0],dp[root][1])$。
 
-至于如何遍历一棵树，当然是[DFS](../graph图论/搜索.md)！
+至于如何遍历一棵树，当然是[DFS](/oiblogs/graph图论/搜索.md)！
 
 ```c++
 
@@ -77,17 +77,21 @@ $son[i][a]$ 记录节点 $i$ 的儿子。
 比如，若我们规定 $a$ 依赖于 $b$ 表示为 $a\rightarrow{b}$，则
 $$
 b\rightarrow{a}
-\\c\rightarrow{a}
-\\d\rightarrow{a}
-\\e\rightarrow{b}
-\\f\rightarrow{b}
-\\g\rightarrow{c}
+\newline
+c\rightarrow{a}
+\newline
+d\rightarrow{a}
+\newline
+e\rightarrow{b}
+\newline
+f\rightarrow{b}
+\newline
+g\rightarrow{c}
 $$
-
 
 可以用下图表示：
 
-<img src="%E6%A0%91%E5%BD%A2dp.assets/graph%20(1).png" alt="fadf" style="zoom:80%;" />
+<img src="graph%20(1).png" alt="fadf" style="zoom:80%;" />
 
 ### 思路
 
@@ -137,10 +141,10 @@ $dp[i][j]$ 表示以节点 $i$ 为根的树中背包容量为 $j$ 时所能取�
 
 奇环树的情况：
 
-- 无向<img src="%E6%A0%91%E5%BD%A2dp.assets/FRnQMj.png" alt="fadf" style="zoom:80%;" />
+- 无向<img src="FRnQMj.png" alt="fadf" style="zoom:80%;" />
 - 有向
-  1. 基环外向树(每个点只有一条入边)。<img src="%E6%A0%91%E5%BD%A2dp.assets/FRnlss.png" alt="adf" style="zoom:80%;" />
-  2. 基环内向树(每个点只有一条出边)。<img src="%E6%A0%91%E5%BD%A2dp.assets/FRn1Ln.png" alt="fds" style="zoom:80%;" />
+  1. 基环外向树(每个点只有一条入边)。<img src="FRnlss.png" alt="adf" style="zoom:80%;" />
+  2. 基环内向树(每个点只有一条出边)。<img src="FRn1Ln.png" alt="fds" style="zoom:80%;" />
 
 因为奇环树的边数 $-1$ 便形成了一棵树，因此仍将其视作”树”来解决问题。
 
@@ -155,7 +159,7 @@ $dp[i][j]$ 表示以节点 $i$ 为根的树中背包容量为 $j$ 时所能取�
 找到一条边即可，不需要记录所有环上节点。
 
 1. **无向图：**
-   1. 你飞速的撸出了一窜[拓扑排序](../graph图论/拓扑排序.md)的模板。
+   1. 你飞速的撸出了一窜[拓扑排序](/oiblogs/graph图论/拓扑排序/)的模板。
    2. 接着，恭喜，环找到了。(入度 $\ge{2}$ 的点就是环上的点，和上一个被访问的点之间的边一定是环边)
 
 2. **有向图：**
@@ -197,7 +201,7 @@ $dp[u][0]$ 对于节点 $u$ 和 $v$ 的选和不选两种状态的覆盖情况�
 
 每个点都有且只有一个**出度**，并且环外的节点方向指向环内，因此任何一个点沿着唯一出边走都会走到环上。
 
-##  有向无环图(DAG)上的dp([拓扑序](../graph图论/拓扑排序.md)dp)
+##  有向无环图(DAG)上的dp([拓扑序](/oiblogs/graph图论/拓扑排序/)dp)
 
 因为有向无环图有拓扑序，所以我们按拓扑序转移即可保证无后效性(即改变已经访问过的节点)。
 

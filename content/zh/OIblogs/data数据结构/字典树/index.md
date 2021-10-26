@@ -20,7 +20,7 @@ description: >
 
 举个栗子，我们要储存 $ababa$ 、$badab$ 、$adace$ 、$abace$ 、$cdeab$ 、$abcab$ 、$ccc$ ，就是下图：
 
-<img src="%E5%AD%97%E5%85%B8%E6%A0%91.assets/%E5%AD%97%E5%85%B8%E6%A0%91.png" alt="fa" style="zoom:80%;" />
+<img src="%E5%AD%97%E5%85%B8%E6%A0%91.png" alt="fa" style="zoom:80%;" />
 
 当然，我们也可以在边上存储字符，具体操作可按照个人喜好来搞，均可以实现字典树的种种操作。
 

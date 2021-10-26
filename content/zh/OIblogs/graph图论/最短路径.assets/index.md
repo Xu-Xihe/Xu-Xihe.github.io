@@ -171,7 +171,7 @@ int main()
 
 用于求解非负权图的单源最短路径。
 
-运用[贪心](../basic基本思想/贪心.md)思想，时间复杂度 $O(n^2)$​​​ 或优化后 $O(n\log{n})$​​，空间复杂度 运行空间 $O(n)$ 和存图​​ $O(m)$​。
+运用[贪心](/oiblogs/basic基本思想/贪心/)思想，时间复杂度 $O(n^2)$ 或优化后 $O(n\log{n})$，空间复杂度 运行空间 $O(n)$ 和存图 $O(m)$。
 
 用 $dis[i]$ 存贮从起始节点到第 $i$ 号节点的相对最短路径长度，并标记已经确定最短路径的顶点。
 
@@ -180,7 +180,7 @@ int main()
 
 例子：
 
-<img src="%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/Dijkstra.jpg" alt="dijkstra" style="zoom: 70%;" />
+<img src="Dijkstra.jpg" alt="dijkstra" style="zoom: 70%;" />
 
 **最暴力的code:**
 
@@ -490,8 +490,6 @@ if (pass[edges[now][i].next] > n)
 一般有两种方案：
 
 1. 建图时直接建成k+1层。
-
-   <img src="%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDYyNDk3MQ==,size_16,color_FFFFFF,t_70" style="zoom:80%;" />
 
 2. 多开一维记录其余(决策)信息，但是对于多种决策用处不大。
 

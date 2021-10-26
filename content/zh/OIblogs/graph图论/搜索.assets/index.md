@@ -56,11 +56,11 @@ description: >
 
 我们先看一个有向图：
 
-![](%E6%90%9C%E7%B4%A2.assets/graph%20(2).png)
+![](graph%20(2).png)
 
 用DFS跑图，就可以得到一下这个：
 
-<img src="%E6%90%9C%E7%B4%A2.assets/dfs-tree.svg" style="zoom:120%;" />
+<img src="dfs-tree.svg" style="zoom:120%;" />
 
 我们可以以树形结构将图中的边分为四种：
 
@@ -78,7 +78,7 @@ description: >
 
 如图，这是一棵树：
 
-<img src="%E6%90%9C%E7%B4%A2.assets/graph%20(2)-16321427081993.png" alt="afd" style="zoom:90%;" />
+<img src="graph%20(2)-16321427081993.png" alt="afd" style="zoom:90%;" />
 
 所以，整了一大顿，这DFS序到底有啥子用？这得从DFS的优势来探讨了。
 
@@ -106,7 +106,7 @@ DFS是深度优先的，所以对于一个点，它会先遍历完它的所有�
 
 这样，我们成功的把一棵树变成了一段段的**区间**：
 
-<img src="%E6%90%9C%E7%B4%A2.assets/graph%20(3).png" alt="fad" style="zoom:90%;" />
+<img src="graph%20(3).png" alt="fad" style="zoom:90%;" />
 
 # BFS
 

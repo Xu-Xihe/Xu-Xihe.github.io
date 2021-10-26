@@ -28,7 +28,7 @@ description: >
 
 **一个有向图,且不存在环。**      ~~多么简洁明了~~
 
-<img src="%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/104909e17df721889a8ef5386d33263d.png" alt="DAG" style="zoom: 55%;" />
+<img src="104909e17df721889a8ef5386d33263d.png" alt="DAG" style="zoom: 55%;" />
 
 这时候，考虑将边 $u\rightarrow{v}$​ 具体为”做 $v$ 之前要先做 $u$​​ ”，那么拓扑排序能求出每件事应该在什么时候做，也就是说满足每件事的前置事件都做完后它才能开始做的一种安排。
 
@@ -52,7 +52,7 @@ description: >
 
 记录已经遍历的节点数，若队列为空并且已经遍历的节点数小于总节点数，则说明存在环。
 
-<img src="%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/6e6578e58c374ddeca7d1ff41d0e8aab.png" alt="huan" style="zoom:65%;" />
+<img src="6e6578e58c374ddeca7d1ff41d0e8aab.png" alt="huan" style="zoom:65%;" />
 
 如上图，当出现环时，删除一定数量的节点和边后，出现所有节点入度均大于$0$​的情况，即队列为空。
 

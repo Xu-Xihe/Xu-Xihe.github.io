@@ -1,11 +1,11 @@
 ---
-title: ""
-linkTitle: ""
+title: "KMP"
+linkTitle: "KMP"
 type: blog
 weight: 3
 date: 2021-10-17
 description: >
-  
+  子串！
 ---
 
 # 	KMP
@@ -36,7 +36,7 @@ LBorder 的性质使得 KMP 算法在匹配失败时能够直接按 LBorder 将�
 
 而构建 $next$ 数组，运用了一点dp的思想，即尽可能的使用现有的去推导已知的。
 
-![kmp](KMP.assets/KMP.png)
+![kmp](KMP.png)
 
 上图演示：当我们求 $next[j+1]$ 时，已经知道 $next[0]\sim next[j]$ 的值。
 
