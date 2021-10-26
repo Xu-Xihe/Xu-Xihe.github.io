@@ -18,27 +18,27 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>SPFA-DFS负环证明 | Seine</title>
+<title>拓扑排序 | Seine</title>
 
 
-  <meta name="description" content="一篇小小的证明。
+  <meta name="description" content="先来后到？
 ">
-<meta property="og:title" content="SPFA-DFS负环证明" />
-<meta property="og:description" content="一篇小小的证明。
+<meta property="og:title" content="拓扑排序" />
+<meta property="og:description" content="先来后到？
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/" /><meta property="article:section" content="OIblogs" />
+<meta property="og:url" content="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" /><meta property="article:section" content="OIblogs" />
 <meta property="article:published_time" content="2021-10-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2021-10-18T00:00:00+00:00" /><meta property="og:site_name" content="Seine" />
 
-<meta itemprop="name" content="SPFA-DFS负环证明">
-<meta itemprop="description" content="一篇小小的证明。
+<meta itemprop="name" content="拓扑排序">
+<meta itemprop="description" content="先来后到？
 "><meta itemprop="datePublished" content="2021-10-18T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-10-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="41">
+<meta itemprop="wordCount" content="156">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="SPFA-DFS负环证明"/>
-<meta name="twitter:description" content="一篇小小的证明。
+<meta name="twitter:title" content="拓扑排序"/>
+<meta name="twitter:description" content="先来后到？
 "/>
 
 
@@ -185,7 +185,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5b410955a2978d5aa81ca35d20d5d38b.json"
+  data-offline-search-index-json-src="/offline-search-index.402553782f1a8e48764ef0d298a31b8d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -207,7 +207,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5b410955a2978d5aa81ca35d20d5d38b.json"
+  data-offline-search-index-json-src="/offline-search-index.402553782f1a8e48764ef0d298a31b8d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -240,30 +240,30 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-oiblogsgraphe59bbee8aeba-li">
   <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-oiblogsgraphe59bbee8aeba"><span class="">图论</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2assets"><span class="">搜索</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8fassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8fassets"><span class="">拓扑排序</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091assets"><span class="">最小生成树</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84assets"><span class="">最短路径</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988eassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988eassets"><span class="td-sidebar-nav-active-item">SPFA-DFS负环证明</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9assets"><span class="">强连通分量与缩点</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886assets"><span class="">树链刨分</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2"><span class="">搜索</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8f-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8f"><span class="td-sidebar-nav-active-item">拓扑排序</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091"><span class="">最小生成树</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84"><span class="">最短路径</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988e-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988e"><span class="">SPFA-DFS负环证明</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9"><span class="">强连通分量与缩点</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886"><span class="">树链刨分</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6aca7e68b89e59b9ee8b7af-li">
   <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6aca7e68b89e59b9ee8b7af"><span class="">欧拉回路</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858dassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858dassets"><span class="">二分图匹配</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9fassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9fassets"><span class="">差分约束</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892assets"><span class="">01分数规划</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395assets"><span class="">坐标距离</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858d-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858d"><span class="">二分图匹配</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9f-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9f"><span class="">差分约束</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892"><span class="">01分数规划</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395"><span class="">坐标距离</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-oiblogsdpe58aa8e68081e8a784e58892-li">
@@ -375,6 +375,15 @@ if (!doNotTrack) {
             
 
 
+<div class="td-toc"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#引子">引子</a></li>
+    <li><a href="#为啥是图论">为啥是图论</a></li>
+    <li><a href="#bfs款">BFS款</a></li>
+    <li><a href="#dfs款">DFS款</a></li>
+  </ul>
+</nav></div>
+
 
 
             
@@ -429,8 +438,8 @@ if (!doNotTrack) {
             </a>
             
 <div class="td-content">
-	<h1>SPFA-DFS负环证明</h1>
-	<div class="lead">一篇小小的证明。</div>
+	<h1>拓扑排序</h1>
+	<div class="lead">先来后到？</div>
 	<div class="td-byline mb-4">
 		
 		<time datetime="2021-10-18" class="text-muted">Monday, October 18, 2021</time>
@@ -453,36 +462,91 @@ if (!doNotTrack) {
 
 		
 	</header>
-	<h1 id="spfa-dfs负环证明">SPFA-DFS负环证明</h1>
-<h2 id="结论">结论</h2>
-<p>让我们先来看结论：</p>
-<p><img src="graph.png" alt="spfa" style="zoom:60%;" /></p>
-<p>如上图，明显可以看出 4 -&gt; 5 -&gt; 6 -&gt; 7 -&gt; 8 -&gt; 9 -&gt; 10 -&gt; 11 -&gt; 12 -&gt; 4 构成了一个负环。</p>
-<p>以任意节点为起点，用SPFA-DFS查找负环，则有：</p>
-<p>​	若存在负环，则<strong>一定</strong>存在特定的至少一对终止点之间的不重叠顶点最短路径的边权从起点<strong>依次</strong>相加<strong>始终</strong>为负。</p>
-<h2 id="正解">正解</h2>
-<p>我们只考虑在负环上的节点(因为我们只需证明这样的点对存在，非负权边节点情况过于复杂且并不影响答案的正确性，故忽略)。</p>
-<p><img src="%E8%B4%9F%E7%8E%AF.png" alt="fuhuan" style="zoom:67%;" /></p>
-<p>我们对这个图重复进行如下操作：</p>
-<ol>
-<li>对于连续的正(负)权边进行合并，并删去权值为0的边，得到一个正负权边交替相连的图。
-<img src="1.png" alt="dsf" style="zoom:67%;" /></li>
-<li>对于一个正负权边交替相连的图，将一条负边 $i$​，$i$​ 的起止两个节点和 $i$​ 指向的正权边分为一组，求两个边权和并作为新边边权合并。新的边表示已 $i$​ 的起点为遍历起点，经过两条边之后的边权和。和为负，则说明可以走过这两条边；和为正，则说明不可以以其作为起点。
-<img src="2.png" style="zoom:67%;" /></li>
-</ol>
-<p>第3步<img src="3.png" alt="dfadf" style="zoom:67%;" /></p>
-<p>第4步<img src="4.png" alt="adf" style="zoom:67%;" /></p>
-<p>直到图中仅剩下两个节点和两条边，这时，一定有两边之和小于0。(因为两边之和即为环上边权之和)</p>
-<p>因此，从这时负边的起点开始遍历原来的负环，保证边权依次相加为负。</p>
-<p>对于任意一条负边，表示从起始节点到终止节点所包含的边依次相加为负，边权为从起点走到终点后的边权和。我们每次选择的均为负边起点。</p>
+	<h1 id="拓扑排序">拓扑排序</h1>
+<p><a href="https://blog.csdn.net/weixin_39970166/article/details/110870115">一篇博文</a></p>
+<h2 id="引子">引子</h2>
+<p>下面让我来看一看拓扑序是什么，又有啥子用。</p>
+<p>众所周知，万事都要讲究先来后到。比如，你对一个婴儿进行早教，你很自信、很闪耀，觉得此孩儿定是天降奇才，跳过了万水千山，连话都不会说，直接交他拓扑排序，为以后发扬光大OI事业而打下坚实的基础。然后，一段时间以后，你忽然发现，你教授完一万字的长篇大论然而并没有一点用处，甚至人家一眼都没看你。所以，你十分灰心，感受到了生活的无情，决定放下倔强，从头教起。你潜心研究，发现有一些知识需要在某些知识已经掌握的情况之下才可以学习；所以，你编写了一个程序，给出学习各种知识的先后顺序。</p>
+<h2 id="为啥是图论">为啥是图论</h2>
+<p>看上面的段子，脑海中浮现出各种问号……</p>
+<p>这东西为啥子是图论嘞？</p>
+<p>我们先搞一下啥是DAG(有向无环图)：</p>
+<p><strong>一个有向图,且不存在环。</strong>      <del>多么简洁明了</del></p>
+<p><img src="104909e17df721889a8ef5386d33263d.png" alt="DAG" style="zoom: 55%;" /></p>
+<p>这时候，考虑将边 $u\rightarrow{v}$​ 具体为”做 $v$ 之前要先做 $u$​​ ”，那么拓扑排序能求出每件事应该在什么时候做，也就是说满足每件事的前置事件都做完后它才能开始做的一种安排。</p>
+<p><strong>拓扑序不是唯一的,因为有些点之间不存在拓扑关系。</strong></p>
+<p>比如，上图中A和E、B和D等就没有拓扑关系。</p>
+<p>建图到此结束。</p>
+<h2 id="bfs款">BFS款</h2>
+<p>入度：指向某个点的有向边条数。</p>
+<p>我们发现，对于任意一个DAG，总有入度为$0$的节点。完成这个节点无需依赖其他任何节点的完成情况。</p>
+<p>因此，我们维护一个队列(其实栈也不是不行)，队列中包含所有入度为$0$的节点。</p>
+<p>对于每一个队列中节点，删去其所有初度，并将删边后入度为$0$​的节点加入队列。</p>
+<p>如需按照字典序大小求拓扑序，改为使用优先队列即可(即优先访问字典序大/小的节点)。</p>
+<p>记录已经遍历的节点数，若队列为空并且已经遍历的节点数小于总节点数，则说明存在环。</p>
+<p><img src="6e6578e58c374ddeca7d1ff41d0e8aab.png" alt="huan" style="zoom:65%;" /></p>
+<p>如上图，当出现环时，删除一定数量的节点和边后，出现所有节点入度均大于$0$​的情况，即队列为空。</p>
+<p>两种算法复杂度均为$O(n+m)$。</p>
+<p><a href="http://poj.org/problem?id=2367">POJ2367</a> 外加一点补充</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;cstdio&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;queue&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;vector&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">vector</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">maxe</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">109</span><span style="color:#000;font-weight:bold">;</span>                       <span style="color:#8f5902;font-style:italic">//最大节点个数
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">len</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">in</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxe</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">cnt</span><span style="color:#000;font-weight:bold">;</span>                     <span style="color:#8f5902;font-style:italic">//len总节点数,in[i]第i号节点的入度,cnt已经遍历的节点个数
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxe</span><span style="color:#000;font-weight:bold">];</span>                     <span style="color:#8f5902;font-style:italic">//邻接链表存图
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">priority_queue</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">greater</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">running</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//如无需按字典序输出,请改用queue;注意两个&#39;&gt;&#39;中间有一个空格,看好是小顶堆还是大顶堆
+</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span>
+<span style="color:#000;font-weight:bold">{</span>
+    <span style="color:#000">scanf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">len</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">len</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">a</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#000">scanf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#204a87;font-weight:bold">break</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">push_back</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">);</span>
+            <span style="color:#000">in</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">a</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//每有一条指向节点的边,入度+1
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">len</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">in</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//查找所有入度为0的节点
+</span><span style="color:#8f5902;font-style:italic"></span>            <span style="color:#000">running</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">running</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">())</span>
+    <span style="color:#000;font-weight:bold">{</span>
+        <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">top</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">running</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#000">running</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d &#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">top</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000">cnt</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//已经遍历的节点数+1
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">n</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">size</span><span style="color:#000;font-weight:bold">();</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//遍历所有出度,进行删边操作
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">{</span>
+            <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">now</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">];</span>
+            <span style="color:#000">in</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">--</span><span style="color:#000;font-weight:bold">;</span>
+            <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">in</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//如果删边后入度为0,则加入队列
+</span><span style="color:#8f5902;font-style:italic"></span>                <span style="color:#000">running</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">);</span>
+        <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">cnt</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">len</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//如果以遍历节点数小于总节点数,说明有环
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;error</span><span style="color:#4e9a06">\n</span><span style="color:#4e9a06">&#34;</span><span style="color:#000;font-weight:bold">);</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+<span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h2 id="dfs款">DFS款</h2>
+<p>选定一个节点，递归完成他的入度。</p>
+<p>对于每个节点循环。</p>
+<p><del>还是学上面那个吧</del></p>
 
 	
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/" aria-label="上一页 - 强连通分量与缩点" class="btn btn-primary"><span class="mr-1">←</span>上一页</a>
+    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" aria-label="上一页 - 最小生成树" class="btn btn-primary"><span class="mr-1">←</span>上一页</a>
   </li>
-    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/" aria-label="下一页 - 最短路径" class="btn btn-primary">下一页<span class="ml-1">→</span></a>
+    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/" aria-label="下一页 - 搜索" class="btn btn-primary">下一页<span class="ml-1">→</span></a>
   </li>
 </ul>
 

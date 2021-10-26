@@ -18,27 +18,27 @@
 <link rel="icon" type="image/png" href="/favicons/android-144x144.png" sizes="144x144">
 <link rel="icon" type="image/png" href="/favicons/android-192x192.png" sizes="192x192">
 
-<title>强连通分量与缩点 | Seine</title>
+<title>差分约束 | Seine</title>
 
 
-  <meta name="description" content="断环成树？
+  <meta name="description" content="不等式和最短路到底有什么关系？
 ">
-<meta property="og:title" content="强连通分量与缩点" />
-<meta property="og:description" content="断环成树？
+<meta property="og:title" content="差分约束" />
+<meta property="og:description" content="不等式和最短路到底有什么关系？
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/" /><meta property="article:section" content="OIblogs" />
-<meta property="article:published_time" content="2021-10-18T00:00:00+00:00" />
-<meta property="article:modified_time" content="2021-10-18T00:00:00+00:00" /><meta property="og:site_name" content="Seine" />
+<meta property="og:url" content="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" /><meta property="article:section" content="OIblogs" />
+<meta property="article:published_time" content="2021-10-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-10-17T00:00:00+00:00" /><meta property="og:site_name" content="Seine" />
 
-<meta itemprop="name" content="强连通分量与缩点">
-<meta itemprop="description" content="断环成树？
-"><meta itemprop="datePublished" content="2021-10-18T00:00:00+00:00" />
-<meta itemprop="dateModified" content="2021-10-18T00:00:00+00:00" />
-<meta itemprop="wordCount" content="420">
+<meta itemprop="name" content="差分约束">
+<meta itemprop="description" content="不等式和最短路到底有什么关系？
+"><meta itemprop="datePublished" content="2021-10-17T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-10-17T00:00:00+00:00" />
+<meta itemprop="wordCount" content="106">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="强连通分量与缩点"/>
-<meta name="twitter:description" content="断环成树？
+<meta name="twitter:title" content="差分约束"/>
+<meta name="twitter:description" content="不等式和最短路到底有什么关系？
 "/>
 
 
@@ -185,7 +185,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5b410955a2978d5aa81ca35d20d5d38b.json"
+  data-offline-search-index-json-src="/offline-search-index.402553782f1a8e48764ef0d298a31b8d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -207,7 +207,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.5b410955a2978d5aa81ca35d20d5d38b.json"
+  data-offline-search-index-json-src="/offline-search-index.402553782f1a8e48764ef0d298a31b8d.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -240,30 +240,30 @@ if (!doNotTrack) {
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child active-path" id="m-oiblogsgraphe59bbee8aeba-li">
   <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/" class="align-left pl-0 td-sidebar-link td-sidebar-link__section" id="m-oiblogsgraphe59bbee8aeba"><span class="">图论</span></a>
   <ul class="ul-2 foldable">
-    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2assets"><span class="">搜索</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8fassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8fassets"><span class="">拓扑排序</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091assets"><span class="">最小生成树</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84assets"><span class="">最短路径</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988eassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988eassets"><span class="">SPFA-DFS负环证明</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9assets"><span class="td-sidebar-nav-active-item">强连通分量与缩点</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886assets"><span class="">树链刨分</span></a>
+    <li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6909ce7b4a2"><span class="">搜索</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8f-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae68b93e68991e68e92e5ba8f"><span class="">拓扑排序</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e5b08fe7949fe68890e6a091"><span class="">最小生成树</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae69c80e79fade8b7afe5be84"><span class="">最短路径</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988e-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebaspfa-dfse8b49fe78eafe8af81e6988e"><span class="">SPFA-DFS负环证明</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5bcbae8bf9ee9809ae58886e9878fe4b88ee7bca9e782b9"><span class="">强连通分量与缩点</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6a091e993bee58996e58886"><span class="">树链刨分</span></a>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae6aca7e68b89e59b9ee8b7af-li">
   <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%AC%A7%E6%8B%89%E5%9B%9E%E8%B7%AF/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae6aca7e68b89e59b9ee8b7af"><span class="">欧拉回路</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858dassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858dassets"><span class="">二分图匹配</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9fassets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9fassets"><span class="">差分约束</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892assets"><span class="">01分数规划</span></a>
-</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395assets-li">
-  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395assets"><span class="">坐标距离</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858d-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae4ba8ce58886e59bbee58cb9e9858d"><span class="">二分图匹配</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child active-path" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9f-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" class="align-left pl-0 active td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae5b7aee58886e7baa6e69d9f"><span class="td-sidebar-nav-active-item">差分约束</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aeba01e58886e695b0e8a784e58892"><span class="">01分数规划</span></a>
+</li><li class="td-sidebar-nav__section-title td-sidebar-nav__section without-child" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395-li">
+  <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95/" class="align-left pl-0 td-sidebar-link td-sidebar-link__page" id="m-oiblogsgraphe59bbee8aebae59d90e6a087e8a1a8e7a4bae6b395"><span class="">坐标距离</span></a>
 </li>
   </ul>
 </li><li class="td-sidebar-nav__section-title td-sidebar-nav__section with-child" id="m-oiblogsdpe58aa8e68081e8a784e58892-li">
@@ -377,18 +377,9 @@ if (!doNotTrack) {
 
 <div class="td-toc"><nav id="TableOfContents">
   <ul>
-    <li><a href="#又是啥玩意">又是啥玩意</a>
-      <ul>
-        <li><a href="#强连通">强连通</a></li>
-        <li><a href="#强连通图">强连通图</a></li>
-        <li><a href="#强连通分量">强连通分量</a></li>
-      </ul>
-    </li>
-    <li><a href="#咋求向你缓缓打出一个">咋求？(向你缓缓打出一个？)</a>
-      <ul>
-        <li><a href="#tarjan算法">Tarjan算法</a></li>
-      </ul>
-    </li>
+    <li><a href="#这是啥子">这是啥子?</a></li>
+    <li><a href="#三角不等式">三角不等式</a></li>
+    <li><a href="#无名算法">无名算法</a></li>
   </ul>
 </nav></div>
 
@@ -446,11 +437,11 @@ if (!doNotTrack) {
             </a>
             
 <div class="td-content">
-	<h1>强连通分量与缩点</h1>
-	<div class="lead">断环成树？</div>
+	<h1>差分约束</h1>
+	<div class="lead">不等式和最短路到底有什么关系？</div>
 	<div class="td-byline mb-4">
 		
-		<time datetime="2021-10-18" class="text-muted">Monday, October 18, 2021</time>
+		<time datetime="2021-10-17" class="text-muted">Sunday, October 17, 2021</time>
 	</div>
 	<header class="article-meta">
 		
@@ -466,174 +457,69 @@ if (!doNotTrack) {
 			
 		
 		
-			<p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i>&nbsp; 2 分钟阅读 &nbsp;</p>
+			<p class="reading-time"><i class="fa fa-clock" aria-hidden="true"></i>&nbsp; 少于1分钟 &nbsp;</p>
 
 		
 	</header>
-	<h1 id="强连通分量与缩点">强连通分量与缩点</h1>
-<h2 id="又是啥玩意">又是啥玩意</h2>
-<h3 id="强连通">强连通</h3>
-<p><del>在**有向图 **$G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。</del></p>
-<p>啥玩意嘛。</p>
-<p>简单一点，<strong>有向图</strong>中，两个节点之间可以<strong>互相</strong>到达，则这两个节点强连通。</p>
-<h3 id="强连通图">强连通图</h3>
-<p>若有向图 $G$ 的每两个顶点都强连通，则 $G$ 是一个强连通图。</p>
-<h3 id="强连通分量">强连通分量</h3>
-<p><del>有向非强连通图的极大强连通子图，称为强连通分量。</del></p>
-<p>又是嘛?</p>
-<p>一个图 $G$，如果是有向图，但是不是强连通图，则图 $G$ 的所有是强连通图的子图中最大的(节点数最多的)称为强连通分量。</p>
-<h2 id="咋求向你缓缓打出一个">咋求？<del>(向你缓缓打出一个？)</del></h2>
-<h3 id="tarjan算法">Tarjan算法</h3>
-<p>经典算法？</p>
-<p>首先，需要知道关于<a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2/">DFS生成树</a>的一些东西。</p>
-<p>观察发现，任何一个强连通分量中必须有至少一个返祖边，因此如果结点 $u$ 是某个强连通分量在搜索树中遇到的第一个结点，那么这个强连通分量的其余结点肯定是在搜索树中以 $u$ 为根的子树中。$u$ 被称为这个强连通分量的根。Tarjan便以此为基础，进行求解。</p>
-<h4 id="维护变量">维护变量</h4>
-<ul>
-<li>$dfn[i]$：维护节点 $i$ 的<a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2/">dfs搜索序</a>。</li>
-<li>$low[i]$：维护节点 $i$ 的子树中和子树中通过一条不在搜索树上的边能到达的所有结点的最小dfn值。</li>
-<li>$stack:run$：维护一个队列，保证上面的节点在以底下第一个 $low[i]=dfn[i]$ 的节点为根的强连通分量中。</li>
-</ul>
-<p>从而我们得到两个推论：</p>
+	<h1 id="差分约束">差分约束</h1>
+<p><a href="https://blog.csdn.net/consciousman/article/details/53812818?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162925274616780265475802%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=162925274616780265475802&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-53812818.pc_search_result_control_group&amp;utm_term=%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F&amp;spm=1018.2226.3001.4187">难懂但是比较全的博文</a></p>
+<h2 id="这是啥子">这是啥子?</h2>
+<p>简单来说，差分约束就是把不等式转变成图的一种思想。因为题目可能会给你很多不等式，使用数学方法很有可能无解，而且难以找到这些不等式之间的联系。但是当我们把它们转化成图之后，就可以使用图论的思想来解题。</p>
+<p>通常，差分约束是用来解决求一组形如 $a-b\le{c}$ 的不等式的可能最大/最小解。</p>
+<p>对于每一个 $i-j\le z$，建立一条从 $j$ 到 $i$ 权值为 $z$ 的有向边，将求解 $a-b\le{c}$ 的最大/最小值转化为求从 $b$ 到 $a$ 的最短/最长路径长度。</p>
+<h2 id="三角不等式">三角不等式</h2>
+<p>若有一个不等式组：
+$$
+\begin{aligned}
+\left{\begin{array}{lr}
+&amp;C-B\le{a}\&amp;C-A\le{b}\&amp;B-A\le{c}
+\end{array}
+\right.
+\end{aligned}
+$$
+则根据上述条件，可以建图如下：</p>
+<p><img src="graph.png" alt="adf" style="zoom:95%;" /></p>
+<p>由不等式相加组合，可得到 $max(C-A)=min(b,a+c)$，这也正好对应图中 $A$ 到 $C$ 的最短路。</p>
+<p>对于最大值：
+$$
+\begin{aligned}
+\left{\begin{array}{lr}
+&amp;C-B\ge{a}\&amp;C-A\ge{b}\&amp;B-A\ge{c}
+\end{array}
+\right.
+\end{aligned}
+$$
+由不等式相加组合，可得到 $min(C-A)=max(b,a+c)$，这也正好对应图中 $A$ 到 $C$ 的最长路。</p>
+<p>因此，对三角不等式加以推广，变量 $n$ 个，不等式 $m$ 个，要求 $C-A$ 的最大/最小值，便就是求取建图后 $A-C$ 的最短/最长路。</p>
+<p>另：</p>
 <ol>
-<li>上节点的 $dfn$ 都大于该结点的 $dfn$ 。</li>
-<li>从根开始的一条路径上的 $dfn$ 严格递增，$low$ 严格非降。</li>
+<li>若出现 $C-A=b$ 的情况，可以拆分为 $C-A\ge{b}$ 和 $C-A\le{b}=A-C\ge{-b}$ 或 $C-A\ge{b}=A-C\le{-b}$ 和 $C-A\le{b}$ 两条边。</li>
+<li>若出现 $C-A&gt;b$的情况，因为题目中大多是整形数据，因此变为 $C-A\ge{b+1}$ 即可。</li>
+<li>值得注意的一点是：若建立的图不联通，则需要加入一个超级源点 $S$，在 $S$ 和其他的每个点之间建立一条权值为 $0$ 的<strong>无向边</strong>，然后从 $S$ 点开始求解即可。</li>
 </ol>
-<h4 id="三种情况">三种情况</h4>
-<p>对于当前节点 $u$，有一条 $u\rightarrow{v}$ 的边：</p>
+<h2 id="无名算法">无名算法</h2>
+<p>流程：</p>
 <ol>
-<li>节点 $v$ 未被访问过：继续对 $v$ 进行深度搜索。在回溯过程中，更新 $low[u]=min(low[u],low[v])$。</li>
-<li>节点 $v$ 被访问过，并且在栈中：说明找到一个返祖边，直接更新 $low[u]=min(low[u],low[v])$ 即可。</li>
-<li>节点 $v$ 被访问过，并且不在栈中：节点 $v$ 的强连通分量的根节点已经被找到，其强连通分量已经确定，不用操作。</li>
+<li>构建基于不等式的关系图。</li>
+<li>跑<a href="./%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.md">最短路</a>(注意，最长路可以通过spfa求出来，只需要改下松弛的方向即可，即<code>if(dis[v] &lt; dis[u] + val(u,v)) dis[v] = dis[u] + val(u,v)</code>。当然我们可以把图中所有的边权取负，求取最短路，两者是等价的。)</li>
+<li>建图后不一定存在最短路/最长路，因为可能存在负环/正环，判断差分约束系统是否存在解一般判环即可。</li>
 </ol>
-<h4 id="注意">注意</h4>
-<p><img src="graph%20(1).png" style="zoom: 75%;" /></p>
-<p>当我们回溯到节点 $i$，发现其 $low[i]=dfn[i]$ 时，说明我们找到一个强连通分量的根节点，栈中在节点 $i$ 上面的都在以节点 $i$ 为根的强连通分量中，因此，对于 $\forall{}\space node\space x\in{upper\space i},\space low[x]=dfn[i]$ 。</p>
-<p>否则，看上图…………经过细致的观察，我们发现，节点 $1、7、5、8、3、4$ 为强连通分量。如果你不在出栈的时候再更新一次，你就惊喜的发现，$low[4]=4$ ？？？因为搜索到 $4\rightarrow8$ 这条边的时候，因为节点 $8$ 刚刚搜搜索到一条至 $low=4$ 的节点，所以$low[8]=4$，就导致 $low[4]=4$，而后没有边再访问到节点 $4$，因此其 $low$ 值无法得到更新，始终为 $4$ ！！！然而，这显然是错的…………</p>
-<p>然后，注意一定要在子树都搜索完成后，在进行弹栈操作。这样，保证横叉边也可以积攒在栈中。</p>
-<h4 id="缩点">缩点</h4>
-<p><del>看起来好高深的ya子</del></p>
-<p>这玩意菜的一批。</p>
-<p>就是对于原来图中的边 $u\rightarrow v$ ，若 $low[u]\neq low[v]$ ，则在新图中连接一条 $low[u]\rightarrow low[v]$ 的边；若 $low[u]=low[v]$ ，则不执行任何操作。</p>
-<p>这时候，我们会发现有可能连重了…………不影响的，好吧，不要强迫症。</p>
-<h4 id="板子">板子</h4>
-<p><a href="https://www.luogu.com.cn/problem/P3387">洛谷P3387 【模板】缩点</a></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;cstdio&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stack&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;vector&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;bitset&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;algorithm&gt;</span><span style="color:#8f5902;font-style:italic">
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">max</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">using</span> <span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">min</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">const</span> <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">maxn</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1e4</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">9</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">];</span>
-<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">nnet</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">];</span>
-<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">vector</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">stack</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#204a87;font-weight:bold">int</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">run</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">val</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">cnt</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">nval</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">maxn</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">ans</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000">std</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">bitset</span><span style="color:#ce5c00;font-weight:bold">&lt;</span><span style="color:#000">maxn</span><span style="color:#ce5c00;font-weight:bold">&gt;</span> <span style="color:#000">ins</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">tarjan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">now</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//我们直接使用dfn[i]==0?来判断节点 i 是否被访问过
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//对于任何一个没有被访问过的节点,有可能是根,加入栈
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000">cnt</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//我们不清楚其子树
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#f57900">i</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">])</span>		 <span style="color:#8f5902;font-style:italic">//遍历所有出度
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//如果没有访问过,递归查找并update
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000">tarjan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">);</span>
-			<span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]);</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#204a87;font-weight:bold">else</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//如果访问过,直接更新
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">],</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]);</span>
-		<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//我们搜索完了整个子树,若成立,即可判断当前节点是强连通分量的根
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">()</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()]</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()])</span> <span style="color:#8f5902;font-style:italic">//将压在当前节点上的都弹出
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000">nval</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]]</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">val</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()];</span>				<span style="color:#8f5902;font-style:italic">//统计强连通分量中节点权值和
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()],</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]);</span> <span style="color:#8f5902;font-style:italic">//标记所有强连通分量的节！！！
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">top</span><span style="color:#000;font-weight:bold">()]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>								<span style="color:#8f5902;font-style:italic">//不在栈中了
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">();</span>
-		<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">//同上
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
-		<span style="color:#000">nval</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">]]</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">val</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">];</span>
-	<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#204a87;font-weight:bold">void</span> <span style="color:#000">find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">now</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//直接DFS暴搜找到最大路径
-</span><span style="color:#8f5902;font-style:italic"></span><span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">cnt</span> <span style="color:#ce5c00;font-weight:bold">+=</span> <span style="color:#000">nval</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">];</span>
-	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">len</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">nnet</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">size</span><span style="color:#000;font-weight:bold">();</span>
-	<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">len</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">ans</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">max</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">ans</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">cnt</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">len</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">nnet</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">][</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">cnt</span> <span style="color:#ce5c00;font-weight:bold">-=</span> <span style="color:#000">nval</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">];</span>
-<span style="color:#000;font-weight:bold">}</span>
-<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">()</span>
-<span style="color:#000;font-weight:bold">{</span>
-	<span style="color:#000">scanf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">n</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">m</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">scanf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">val</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">u</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">v</span><span style="color:#000;font-weight:bold">;</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">scanf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">u</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">&amp;</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">);</span>
-		<span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">u</span><span style="color:#000;font-weight:bold">].</span><span style="color:#000">push_back</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">v</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//防止出现非连通图,对于所有没被遍历到的点做Tarjan
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">dfn</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span>
-		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reset</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">//多次不清空,暴零两行泪
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#204a87;font-weight:bold">while</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">empty</span><span style="color:#000;font-weight:bold">())</span>
-				<span style="color:#000">run</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">pop</span><span style="color:#000;font-weight:bold">();</span>
-			<span style="color:#000">tarjan</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">);</span>
-		<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">reset</span><span style="color:#000;font-weight:bold">();</span> <span style="color:#8f5902;font-style:italic">//废物利用qwq
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">j</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">j</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#f57900">i</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">next</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">])</span>
-		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//这就是传说中的缩点
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000;font-weight:bold">{</span>
-				<span style="color:#000">nnet</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">j</span><span style="color:#000;font-weight:bold">]].</span><span style="color:#000">push_back</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]);</span>
-				<span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">low</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//记录入度
-</span><span style="color:#8f5902;font-style:italic"></span>			<span style="color:#000;font-weight:bold">}</span>
-		<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">&lt;=</span> <span style="color:#000">n</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#000">i</span><span style="color:#ce5c00;font-weight:bold">++</span><span style="color:#000;font-weight:bold">)</span>
-	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">!</span><span style="color:#000">ins</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#8f5902;font-style:italic">//找到图中所有入度为0的点为根(非连通图可能有多个根)
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000;font-weight:bold">{</span>
-			<span style="color:#000">root</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">push_back</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">);</span>
-		<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#204a87;font-weight:bold">int</span> <span style="color:#f57900">now</span> <span style="color:#000;font-weight:bold">:</span> <span style="color:#000">root</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">//对于每个根,跑DFS
-</span><span style="color:#8f5902;font-style:italic"></span>	<span style="color:#000;font-weight:bold">{</span>
-		<span style="color:#000">cnt</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#8f5902;font-style:italic">//又是废物利用qwq
-</span><span style="color:#8f5902;font-style:italic"></span>		<span style="color:#000">find</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">now</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#000;font-weight:bold">}</span>
-	<span style="color:#000">printf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;%d&#34;</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">ans</span><span style="color:#000;font-weight:bold">);</span>
-	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
-<span style="color:#000;font-weight:bold">}</span>
+<p>一些注意事项：</p>
+<ol>
+<li>根据条件把题意通过变量组表达出来得到不等式组，注意要发掘出隐含的不等式，比如说前后两个变量之间隐含的不等式关系。</li>
+<li>建好图之后直接spfa求解，一般不能用dijstra算法，因为通常存在负边。</li>
+<li>注意初始化的问题。</li>
+</ol>
+<p><a href="https://www.luogu.com.cn/problem/P5960">洛谷P5960</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">
 </code></pre></div>
 	
 
 	<ul class="list-unstyled d-flex justify-content-between align-items-center mb-0 pt-5">
   <li>
-    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/" aria-label="上一页 - 树链刨分" class="btn btn-primary"><span class="mr-1">←</span>上一页</a>
+    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" aria-label="上一页 - 01分数规划" class="btn btn-primary"><span class="mr-1">←</span>上一页</a>
   </li>
-    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/" aria-label="下一页 - SPFA-DFS负环证明" class="btn btn-primary">下一页<span class="ml-1">→</span></a>
+    <a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/" aria-label="下一页 - 二分图匹配" class="btn btn-primary">下一页<span class="ml-1">→</span></a>
   </li>
 </ul>
 
