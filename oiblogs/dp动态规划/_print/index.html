@@ -180,7 +180,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.c9ed4b57aa84679c6a2d8362dfeecf89.json"
+  data-offline-search-index-json-src="/offline-search-index.5b410955a2978d5aa81ca35d20d5d38b.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -251,7 +251,7 @@ if (!doNotTrack) {
     
 	
 
-    <li><a href="#pg-3c8242be145b34ac68d7cceef427f5ba"></a></li>
+    <li><a href="#pg-bb91237a339cb04ea27356602422fb63">KMP</a></li>
 
 
 
@@ -271,7 +271,7 @@ if (!doNotTrack) {
     
 	
 
-    <li><a href="#pg-35c3320852489315b2a1e2d4b0e5cc69">树形dp</a></li>
+    <li><a href="#pg-5c615987697863aa53097448c62284b8">树形dp</a></li>
 
 
 
@@ -653,8 +653,8 @@ $$
   
 
 <div class="td-content" style="page-break-before: always">
-    <h1 id="pg-3c8242be145b34ac68d7cceef427f5ba"></h1>
-	
+    <h1 id="pg-bb91237a339cb04ea27356602422fb63">KMP</h1>
+	<div class="lead">子串！</div>
 	<div class="td-byline mb-4">
 		
         
@@ -675,7 +675,7 @@ $$
 <p>为模式串建立 $next$ 数组，$next[i]$ 表示当模式串匹配到第 $i$ 位失配时应该从哪一位开始匹配。</p>
 <p>注意，$next[0]$ 和 $next[1]$ 不存在Border(一共长度没有 $2$，上哪来的两个子串？)，因此根据其意义规定为 $next[0]=next[1]=0$，在这两位失配时均从头开始匹配。</p>
 <p>而构建 $next$ 数组，运用了一点dp的思想，即尽可能的使用现有的去推导已知的。</p>
-<p><img src="KMP.assets/KMP.png" alt="kmp"></p>
+<p><img src="KMP.png" alt="kmp"></p>
 <p>上图演示：当我们求 $next[j+1]$ 时，已经知道 $next[0]\sim next[j]$ 的值。</p>
 <ol>
 <li>首先，我们判断 $j+1=k$，若成立则 $next[j+1]=next[j]+1$ 并退出，若不成立执行第 $2$ 步。</li>
@@ -919,7 +919,7 @@ $dp[i][j]$ 表示以 $i$ 为起点，$j$ 为终点的区间合并成一堆所取
   
 
 <div class="td-content" style="page-break-before: always">
-    <h1 id="pg-35c3320852489315b2a1e2d4b0e5cc69">树形dp</h1>
+    <h1 id="pg-5c615987697863aa53097448c62284b8">树形dp</h1>
 	<div class="lead">你在爬树……</div>
 	<div class="td-byline mb-4">
 		
@@ -940,7 +940,7 @@ $dp[i][j]$ 表示以 $i$ 为起点，$j$ 为终点的区间合并成一堆所取
 <p>因此，我们要使用dp思想！</p>
 <p>首先，解决第一个问题——很可能题目并没有指定根节点($root$)，而仅仅给了你一个无向连通图($n$ 个节点 $n-1$ 条边，保证任意两两节点连通)</p>
 <p>我们直接任意选择一个作为根($root$)不就完了嘛！<del>就是这么简单粗暴</del></p>
-<p><img src="%E6%A0%91%E5%BD%A2dp.assets/ea711e92b4b28994d0dea763f041320f.png" alt="fa" style="zoom:70%;" /></p>
+<p><img src="ea711e92b4b28994d0dea763f041320f.png" alt="fa" style="zoom:70%;" /></p>
 <p>对于整个大问题，dp就是不断求解一个个小问题的过程。</p>
 <p>对于任意一个节点，状态只有两种：</p>
 <ol>
@@ -959,7 +959,7 @@ $son[i][a]$ 记录节点 $i$ 的儿子。</p>
 <p>如果节点 $i$ 在独立集中，则 $i$ 的任何儿子一定不在独立集中。因此，我们只需要把以 $i$ 的儿子们为根且根节点不在独立集中的最大独立集求和再加上节点 $i$ 的点权，就得到正确的解。</p>
 <p>而如果节点 $i$ 不在独立集中，则 $i$ 的儿子在与不在均可。因此，我们要把以 $i$ 的儿子们为根的最大独立集(因此要在根节点在和不在两个中取最大值)求和即可。</p>
 <p>而dp完成后，可得到 $ans=max(dp[root][0],dp[root][1])$。</p>
-<p>至于如何遍历一棵树，当然是<a href="../graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.md">DFS</a>！</p>
+<p>至于如何遍历一棵树，当然是<a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.md">DFS</a>！</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">
 </code></pre></div><h2 id="install-apps">install APPs！</h2>
 <p>众所周知(就算你不知，现在也知了)，背包是可以挂在树上的。</p>
@@ -968,14 +968,19 @@ $son[i][a]$ 记录节点 $i$ 的儿子。</p>
 <p>比如，若我们规定 $a$ 依赖于 $b$ 表示为 $a\rightarrow{b}$，则
 $$
 b\rightarrow{a}
-\c\rightarrow{a}
-\d\rightarrow{a}
-\e\rightarrow{b}
-\f\rightarrow{b}
-\g\rightarrow{c}
+\newline
+c\rightarrow{a}
+\newline
+d\rightarrow{a}
+\newline
+e\rightarrow{b}
+\newline
+f\rightarrow{b}
+\newline
+g\rightarrow{c}
 $$</p>
 <p>可以用下图表示：</p>
-<p><img src="%E6%A0%91%E5%BD%A2dp.assets/graph%20(1).png" alt="fadf" style="zoom:80%;" /></p>
+<p><img src="graph%20(1).png" alt="fadf" style="zoom:80%;" /></p>
 <h3 id="思路">思路</h3>
 <p>背包和树形dp结合，转化为分组背包问题。</p>
 <p>首先，我们明确，进行树形dp时我们是<strong>从下至上</strong>进行的，因此我们对节点 $i$ 进行状态转移时，节点 $i$ 的所有儿子的dp值是已知的。</p>
@@ -1004,11 +1009,11 @@ $$</p>
 </ol>
 <p>奇环树的情况：</p>
 <ul>
-<li>无向<img src="%E6%A0%91%E5%BD%A2dp.assets/FRnQMj.png" alt="fadf" style="zoom:80%;" /></li>
+<li>无向<img src="FRnQMj.png" alt="fadf" style="zoom:80%;" /></li>
 <li>有向
 <ol>
-<li>基环外向树(每个点只有一条入边)。<img src="%E6%A0%91%E5%BD%A2dp.assets/FRnlss.png" alt="adf" style="zoom:80%;" /></li>
-<li>基环内向树(每个点只有一条出边)。<img src="%E6%A0%91%E5%BD%A2dp.assets/FRn1Ln.png" alt="fds" style="zoom:80%;" /></li>
+<li>基环外向树(每个点只有一条入边)。<img src="FRnlss.png" alt="adf" style="zoom:80%;" /></li>
+<li>基环内向树(每个点只有一条出边)。<img src="FRn1Ln.png" alt="fds" style="zoom:80%;" /></li>
 </ol>
 </li>
 </ul>
@@ -1022,7 +1027,7 @@ $$</p>
 <li>
 <p><strong>无向图：</strong></p>
 <ol>
-<li>你飞速的撸出了一窜<a href="../graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.md">拓扑排序</a>的模板。</li>
+<li>你飞速的撸出了一窜<a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑排序</a>的模板。</li>
 <li>接着，恭喜，环找到了。(入度 $\ge{2}$ 的点就是环上的点，和上一个被访问的点之间的边一定是环边)</li>
 </ol>
 </li>
@@ -1075,7 +1080,7 @@ $$</p>
 <p>每个点都有且只有一个<strong>入度</strong>，并且环内的节点方向指向环外，因此任何一个点沿着唯一入边走都会走到环上。</p>
 <h3 id="内向dag">内向DAG</h3>
 <p>每个点都有且只有一个<strong>出度</strong>，并且环外的节点方向指向环内，因此任何一个点沿着唯一出边走都会走到环上。</p>
-<h2 id="有向无环图dag上的dp拓扑序graph图论拓扑排序mddp">有向无环图(DAG)上的dp(<a href="../graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.md">拓扑序</a>dp)</h2>
+<h2 id="有向无环图dag上的dp拓扑序oiblogsgraph图论拓扑排序dp">有向无环图(DAG)上的dp(<a href="/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">拓扑序</a>dp)</h2>
 <p>因为有向无环图有拓扑序，所以我们按拓扑序转移即可保证无后效性(即改变已经访问过的节点)。</p>
 <p>DAG上的dp可以在 $O(n+m)$ 的时间复杂度内解决<strong>DAG上最短/最长路、最短路计数</strong>等基本问题。</p>
 <h2 id="其他应用一些奇怪的题的题解">其他应用(一些奇怪的题的题解)</h2>

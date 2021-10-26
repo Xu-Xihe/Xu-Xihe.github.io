@@ -16,10 +16,10 @@
     
     <item>
       <title>OIblogs: 搜索</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2.assets/</guid>
       <description>
         
         
@@ -61,9 +61,9 @@
 &lt;p&gt;在一个有向图中，以DFS的方式选取某一节点进行搜索而形成的树+边的结构。&lt;/p&gt;
 &lt;p&gt;举个栗子：&lt;/p&gt;
 &lt;p&gt;我们先看一个有向图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%90%9C%E7%B4%A2.assets/graph%20(2).png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph%20(2).png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;用DFS跑图，就可以得到一下这个：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%90%9C%E7%B4%A2.assets/dfs-tree.svg&#34; style=&#34;zoom:120%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;dfs-tree.svg&#34; style=&#34;zoom:120%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;我们可以以树形结构将图中的边分为四种：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -83,7 +83,7 @@
 &lt;p&gt;字面意思，很好理解，就是用DFS&lt;strong&gt;前序遍历&lt;/strong&gt;一棵树上所有节点和边时访问的顺序。&lt;/p&gt;
 &lt;p&gt;我们知道，树是一种非线性的数据结构，它的一些数据调用肯定是没有线性结构来得方便的。所以这个时候，dfs站了出来。&lt;/p&gt;
 &lt;p&gt;如图，这是一棵树：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%90%9C%E7%B4%A2.assets/graph%20(2)-16321427081993.png&#34; alt=&#34;afd&#34; style=&#34;zoom:90%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph%20(2)-16321427081993.png&#34; alt=&#34;afd&#34; style=&#34;zoom:90%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;所以，整了一大顿，这DFS序到底有啥子用？这得从DFS的优势来探讨了。&lt;/p&gt;
 &lt;p&gt;DFS是深度优先的，所以对于一个点，它会先遍历完它的所有子节点，再去遍历他的兄弟节点以及其他子树的节点。&lt;/p&gt;
 &lt;p&gt;因此DFS序保证了一棵树(子树)的根节点和其子树中所有的节点会被存储在连续的区间之中。&lt;/p&gt;
@@ -97,7 +97,7 @@
 &lt;p&gt;我们发现，节点 $i$ 的DFS序其实是DFS第一次访问节点 $i$ 的时间，因此我们只需要记录最后结束访问的时间即可。&lt;/p&gt;
 &lt;p&gt;实现很简单，循环完儿子之后(回溯之前)记录一下当前最大DFS序值即可。&lt;/p&gt;
 &lt;p&gt;这样，我们成功的把一棵树变成了一段段的&lt;strong&gt;区间&lt;/strong&gt;：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%90%9C%E7%B4%A2.assets/graph%20(3).png&#34; alt=&#34;fad&#34; style=&#34;zoom:90%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph%20(3).png&#34; alt=&#34;fad&#34; style=&#34;zoom:90%;&#34; /&gt;&lt;/p&gt;
 &lt;h1 id=&#34;bfs&#34;&gt;BFS&lt;/h1&gt;
 &lt;h2 id=&#34;广度优先搜索&#34;&gt;广度优先搜索。&lt;/h2&gt;
 &lt;p&gt;广度优先，即每一次都搜索距离起点相同长度的点，然后继续搜索长度 $+1$ 的点，直到搜索到终点。&lt;/p&gt;
@@ -120,10 +120,10 @@
     
     <item>
       <title>OIblogs: 拓扑排序</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/</guid>
       <description>
         
         
@@ -137,7 +137,7 @@
 &lt;p&gt;这东西为啥子是图论嘞？&lt;/p&gt;
 &lt;p&gt;我们先搞一下啥是DAG(有向无环图)：&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;一个有向图,且不存在环。&lt;/strong&gt;      &lt;del&gt;多么简洁明了&lt;/del&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/104909e17df721889a8ef5386d33263d.png&#34; alt=&#34;DAG&#34; style=&#34;zoom: 55%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;104909e17df721889a8ef5386d33263d.png&#34; alt=&#34;DAG&#34; style=&#34;zoom: 55%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;这时候，考虑将边 $u\rightarrow{v}$​ 具体为”做 $v$ 之前要先做 $u$​​ ”，那么拓扑排序能求出每件事应该在什么时候做，也就是说满足每件事的前置事件都做完后它才能开始做的一种安排。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;拓扑序不是唯一的,因为有些点之间不存在拓扑关系。&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;比如，上图中A和E、B和D等就没有拓扑关系。&lt;/p&gt;
@@ -149,7 +149,7 @@
 &lt;p&gt;对于每一个队列中节点，删去其所有初度，并将删边后入度为$0$​的节点加入队列。&lt;/p&gt;
 &lt;p&gt;如需按照字典序大小求拓扑序，改为使用优先队列即可(即优先访问字典序大/小的节点)。&lt;/p&gt;
 &lt;p&gt;记录已经遍历的节点数，若队列为空并且已经遍历的节点数小于总节点数，则说明存在环。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F.assets/6e6578e58c374ddeca7d1ff41d0e8aab.png&#34; alt=&#34;huan&#34; style=&#34;zoom:65%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;6e6578e58c374ddeca7d1ff41d0e8aab.png&#34; alt=&#34;huan&#34; style=&#34;zoom:65%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如上图，当出现环时，删除一定数量的节点和边后，出现所有节点入度均大于$0$​的情况，即队列为空。&lt;/p&gt;
 &lt;p&gt;两种算法复杂度均为$O(n+m)$。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;http://poj.org/problem?id=2367&#34;&gt;POJ2367&lt;/a&gt; 外加一点补充&lt;/p&gt;
@@ -210,10 +210,10 @@
     
     <item>
       <title>OIblogs: 最小生成树</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/</guid>
       <description>
         
         
@@ -221,8 +221,8 @@
 &lt;h2 id=&#34;问题描述&#34;&gt;问题描述&lt;/h2&gt;
 &lt;p&gt;给出一个有$n$个节点，$m$条边的无向图，从中选取边权之和最小(大)的$n-1$条边，使得图上任意两个顶点有且只有唯一的一条路径可以互相到达。&lt;/p&gt;
 &lt;h2 id=&#34;例子&#34;&gt;例子&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.png&#34; alt=&#34;最小生成树&#34;&gt;                                        &lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/%E6%97%A0%E5%90%91%E5%9B%BE.svg&#34; alt=&#34;无向图&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;如上图，其最小生成树为：  &lt;strong&gt;红色部分&lt;/strong&gt;    和                                               &lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.dot.svg&#34; alt=&#34;最小生成树&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.png&#34; alt=&#34;最小生成树&#34;&gt;                                        &lt;img src=&#34;%E6%97%A0%E5%90%91%E5%9B%BE.svg&#34; alt=&#34;无向图&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;如上图，其最小生成树为：  &lt;strong&gt;红色部分&lt;/strong&gt;    和                                               &lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.dot.svg&#34; alt=&#34;最小生成树&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;注意&lt;/strong&gt; 最小生成树可能不唯一(边权相等)&lt;/p&gt;
 &lt;h2 id=&#34;暴力&#34;&gt;暴力&lt;/h2&gt;
 &lt;p&gt;枚举每一种可能的情况，计算最小值(因复杂度过高，不再赘述)。&lt;/p&gt;
@@ -231,8 +231,8 @@
 &lt;p&gt;&lt;a href=&#34;https://blog.csdn.net/weixin_42657313/article/details/103326019?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522162729943216780366585099%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;amp;request_id=162729943216780366585099&amp;amp;biz_id=0&amp;amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_click~default-6-103326019.first_rank_v2_pc_rank_v29&amp;amp;utm_term=prim%E7%AE%97%E6%B3%95&amp;amp;spm=1018.2226.3001.4187&#34;&gt;一篇比较详细的博文&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;以&lt;strong&gt;点&lt;/strong&gt;为核心，每次选择当前&lt;strong&gt;已选中&lt;/strong&gt;的点连接&lt;strong&gt;未选中&lt;/strong&gt;的点的边中&lt;strong&gt;权值最小&lt;/strong&gt;的一个，将这个点加入&lt;strong&gt;已选中&lt;/strong&gt;的点集，并用和这个点连接的边更新&lt;strong&gt;未选中&lt;/strong&gt;的点的距离。&lt;/p&gt;
 &lt;h3 id=&#34;例子-1&#34;&gt;例子&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/20191130162837932.png&#34; alt=&#34;Prim1&#34; style=&#34;zoom: 150%;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91.assets/20191130162907364.png&#34; alt=&#34;Prim2&#34; style=&#34;zoom: 200%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;20191130162837932.png&#34; alt=&#34;Prim1&#34; style=&#34;zoom: 150%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;20191130162907364.png&#34; alt=&#34;Prim2&#34; style=&#34;zoom: 200%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;del&gt;盗图很开心&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/P3366&#34;&gt;洛谷P3366&lt;/a&gt;    &lt;del&gt;其实就是板子&lt;/del&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
@@ -311,7 +311,7 @@
 &lt;p&gt;时间复杂度： $O(m\log{m})$&lt;/p&gt;
 &lt;p&gt;想法比较简单、易懂。&lt;/p&gt;
 &lt;p&gt;将所有边&lt;strong&gt;按权值&lt;/strong&gt;从小到大排序，优先选取&lt;strong&gt;权值较小&lt;/strong&gt;的边，判断两个端点是否在&lt;strong&gt;同一个集合&lt;/strong&gt;中。如果在同一集合中，则&lt;strong&gt;跳过&lt;/strong&gt;这条边，遍历下一条；如果不再同一集合中，则将ans加上边权并将&lt;strong&gt;两个点所在的集合合并&lt;/strong&gt;。&lt;/p&gt;
-&lt;p&gt;涉及到判断两个点是否在同一集合中，需要引入&lt;a href=&#34;../data%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86.md&#34;&gt;并查集&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;涉及到判断两个点是否在同一集合中，需要引入&lt;a href=&#34;/oiblogs/data%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%B9%B6%E6%9F%A5%E9%9B%86/&#34;&gt;并查集&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.luogu.com.cn/problem/P3366&#34;&gt;洛谷P3366&lt;/a&gt;    &lt;del&gt;其实就是板子&lt;/del&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;algorithm&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
@@ -364,7 +364,7 @@
     &lt;span style=&#34;color:#204a87;font-weight:bold&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#0000cf;font-weight:bold&#34;&gt;0&lt;/span&gt;&lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;;&lt;/span&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
-&lt;p&gt;两种算法均用到&lt;a href=&#34;&#34;&gt;贪心&lt;/a&gt;的思想。&lt;/p&gt;
+&lt;p&gt;两种算法均用到&lt;a href=&#34;/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E8%B4%AA%E5%BF%83/&#34;&gt;贪心&lt;/a&gt;的思想。&lt;/p&gt;
 &lt;p&gt;Prim侧重于点，适合稠密图；Kruskal侧重于边，适合稀疏图；但二者优化后差距并不大，推荐Kruskal，易理解不费手还不容易出奇奇怪怪的问题。&lt;del&gt;(复杂度中可以看出)&lt;/del&gt;&lt;/p&gt;
 
       </description>
@@ -372,10 +372,10 @@
     
     <item>
       <title>OIblogs: 最短路径</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/</guid>
       <description>
         
         
@@ -520,14 +520,14 @@ $$&lt;/li&gt;
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;dijkstra算法&#34;&gt;Dijkstra算法&lt;/h2&gt;
 &lt;p&gt;用于求解非负权图的单源最短路径。&lt;/p&gt;
-&lt;p&gt;运用&lt;a href=&#34;../basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E8%B4%AA%E5%BF%83.md&#34;&gt;贪心&lt;/a&gt;思想，时间复杂度 $O(n^2)$​​​ 或优化后 $O(n\log{n})$​​，空间复杂度 运行空间 $O(n)$ 和存图​​ $O(m)$​。&lt;/p&gt;
+&lt;p&gt;运用&lt;a href=&#34;/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E8%B4%AA%E5%BF%83/&#34;&gt;贪心&lt;/a&gt;思想，时间复杂度 $O(n^2)$ 或优化后 $O(n\log{n})$，空间复杂度 运行空间 $O(n)$ 和存图 $O(m)$。&lt;/p&gt;
 &lt;p&gt;用 $dis[i]$ 存贮从起始节点到第 $i$ 号节点的相对最短路径长度，并标记已经确定最短路径的顶点。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;初始化：设起始节点编号为 $k$，则 $dis[k]=0$，$i$ 与 $k$ 相连则 $dis[i]=边权$，其余的 $dis[j]=\infty$。&lt;/li&gt;
 &lt;li&gt;松弛：在 $dis$ 数组中寻找未确定最短路径中 $dis[i]$ 最小，将 $i$ 加入已确定的顶点集合，并用其连接的边尝试使周围节点的 $dis$ 更小。(若存在负权，则有可能存在走负权边将以确定节点的最短路径变更小的可能，因此算法失效)&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;例子：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/Dijkstra.jpg&#34; alt=&#34;dijkstra&#34; style=&#34;zoom: 70%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;Dijkstra.jpg&#34; alt=&#34;dijkstra&#34; style=&#34;zoom: 70%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;最暴力的code:&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;cstdio&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
 &lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;&amp;lt;vector&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#8f5902;font-style:italic&#34;&gt;
@@ -786,7 +786,6 @@ $$&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;建图时直接建成k+1层。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl81MDYyNDk3MQ==,size_16,color_FFFFFF,t_70&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;多开一维记录其余(决策)信息，但是对于多种决策用处不大。&lt;/p&gt;
@@ -799,72 +798,45 @@ $$&lt;/li&gt;
     
     <item>
       <title>OIblogs: SPFA-DFS负环证明</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/spfa-dfs%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/</guid>
       <description>
         
         
         &lt;h1 id=&#34;spfa-dfs负环证明&#34;&gt;SPFA-DFS负环证明&lt;/h1&gt;
 &lt;h2 id=&#34;结论&#34;&gt;结论&lt;/h2&gt;
 &lt;p&gt;让我们先来看结论：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/graph.png&#34; alt=&#34;spfa&#34; style=&#34;zoom:60%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph.png&#34; alt=&#34;spfa&#34; style=&#34;zoom:60%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如上图，明显可以看出 4 -&amp;gt; 5 -&amp;gt; 6 -&amp;gt; 7 -&amp;gt; 8 -&amp;gt; 9 -&amp;gt; 10 -&amp;gt; 11 -&amp;gt; 12 -&amp;gt; 4 构成了一个负环。&lt;/p&gt;
 &lt;p&gt;以任意节点为起点，用SPFA-DFS查找负环，则有：&lt;/p&gt;
 &lt;p&gt;​	若存在负环，则&lt;strong&gt;一定&lt;/strong&gt;存在特定的至少一对终止点之间的不重叠顶点最短路径的边权从起点&lt;strong&gt;依次&lt;/strong&gt;相加&lt;strong&gt;始终&lt;/strong&gt;为负。&lt;/p&gt;
 &lt;h2 id=&#34;正解&#34;&gt;正解&lt;/h2&gt;
 &lt;p&gt;我们只考虑在负环上的节点(因为我们只需证明这样的点对存在，非负权边节点情况过于复杂且并不影响答案的正确性，故忽略)。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/%E8%B4%9F%E7%8E%AF.png&#34; alt=&#34;fuhuan&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E8%B4%9F%E7%8E%AF.png&#34; alt=&#34;fuhuan&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;我们对这个图重复进行如下操作：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;对于连续的正(负)权边进行合并，并删去权值为0的边，得到一个正负权边交替相连的图。
-&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/1.png&#34; alt=&#34;dsf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;1.png&#34; alt=&#34;dsf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/li&gt;
 &lt;li&gt;对于一个正负权边交替相连的图，将一条负边 $i$​，$i$​ 的起止两个节点和 $i$​ 指向的正权边分为一组，求两个边权和并作为新边边权合并。新的边表示已 $i$​ 的起点为遍历起点，经过两条边之后的边权和。和为负，则说明可以走过这两条边；和为正，则说明不可以以其作为起点。
-&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/2.png&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/li&gt;
+&lt;img src=&#34;2.png&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;第3步&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/3.png&#34; alt=&#34;dfadf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
-&lt;p&gt;第4步&lt;img src=&#34;SPFA-DFS%E8%B4%9F%E7%8E%AF%E8%AF%81%E6%98%8E.assets/4.png&#34; alt=&#34;adf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第3步&lt;img src=&#34;3.png&#34; alt=&#34;dfadf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;第4步&lt;img src=&#34;4.png&#34; alt=&#34;adf&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;直到图中仅剩下两个节点和两条边，这时，一定有两边之和小于0。(因为两边之和即为环上边权之和)&lt;/p&gt;
 &lt;p&gt;因此，从这时负边的起点开始遍历原来的负环，保证边权依次相加为负。&lt;/p&gt;
 &lt;p&gt;对于任意一条负边，表示从起始节点到终止节点所包含的边依次相加为负，边权为从起点走到终点后的边权和。我们每次选择的均为负边起点。&lt;/p&gt;
-&lt;h2 id=&#34;伪证早期的一些想法&#34;&gt;伪证(早期的一些想法)&lt;/h2&gt;
-&lt;p&gt;首先，我们对于连续的正(负)权边进行合并，并删去权值为0的边，得到一个正负权边交替相连的图。&lt;/p&gt;
-&lt;p&gt;因为是负权边，所以有 $\abs{\sum^m_ival[i]|i\in{(-\infty,0)}}&amp;gt;\abs{\sum_i^mval[i]|i\in{(0,\infty)}}$。若存在 $i$ 正权边大于与之相邻的 $j$ 负权边，那么一定存在另一负权边绝对值大于与之相邻的正权边加 $i+j$。&lt;/p&gt;
-&lt;p&gt;对于任意负环(边权和为负的部分)，我们将它任意切割成两半，共有两种情况：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;任意一半的边权之和都小于 $0$​&lt;img src=&#34;%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/graph2.png&#34; alt=&#34;zero&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;一半边权之和大于 $0$，另一半小于 $0$ (设两半边权之和为 $a$ 和 $b$，则有 $a+b&amp;lt;0$ 。所以，当 $a&amp;gt;0$ 时，一定有 $b&amp;lt;0$​ )&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84.assets/graph1.png&#34; alt=&#34;half&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;对于任意边权和为正的部分，我们将它任意切割成两半，共有两种情况：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;任意一半的边权和为正&lt;/li&gt;
-&lt;li&gt;其中一半的边权和为负，另一半为正&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;我们发现，当我们对边权和为负的部分进行 $n$​ 次切割直到有至少两个部分边权和为负，并且 $\abs{\sum边权和为负的部分}&amp;gt;\abs{\sum边权和为正的部分}$ ​。&lt;/p&gt;
-&lt;p&gt;操作：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;对于任意一条最短路径，若其中有任何一个点在负环中，则其长度为 $-\infty$，并且路径上存在多次访问节点，所以当一个顶点被第二次加入最短路并且其 $dis&amp;lt;0$，证明有负环。&lt;/li&gt;
-&lt;li&gt;很显然，我们并不能跑通常意义下的最短路(肯定比SPFA-BFS慢很多，失去意义)，而是当任何时刻$dis&amp;gt;0$​时终止递归。&lt;/li&gt;
-&lt;li&gt;如2，我们只寻找了以起点为负环上特定顶点的情况，所以需要对每个顶点执行同样的操作。&lt;/li&gt;
-&lt;li&gt;此算法理论上只需要跑一遍负环即可，而无需走 $n$ 条边。&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;然后就写不下去了…………&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>OIblogs: 强连通分量与缩点</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/</guid>
       <description>
         
         
@@ -883,11 +855,11 @@ $$&lt;/li&gt;
 &lt;h2 id=&#34;咋求向你缓缓打出一个&#34;&gt;咋求？&lt;del&gt;(向你缓缓打出一个？)&lt;/del&gt;&lt;/h2&gt;
 &lt;h3 id=&#34;tarjan算法&#34;&gt;Tarjan算法&lt;/h3&gt;
 &lt;p&gt;经典算法？&lt;/p&gt;
-&lt;p&gt;首先，需要知道关于&lt;a href=&#34;./%E6%90%9C%E7%B4%A2.md&#34;&gt;DFS生成树&lt;/a&gt;的一些东西。&lt;/p&gt;
+&lt;p&gt;首先，需要知道关于&lt;a href=&#34;/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2/&#34;&gt;DFS生成树&lt;/a&gt;的一些东西。&lt;/p&gt;
 &lt;p&gt;观察发现，任何一个强连通分量中必须有至少一个返祖边，因此如果结点 $u$ 是某个强连通分量在搜索树中遇到的第一个结点，那么这个强连通分量的其余结点肯定是在搜索树中以 $u$ 为根的子树中。$u$ 被称为这个强连通分量的根。Tarjan便以此为基础，进行求解。&lt;/p&gt;
 &lt;h4 id=&#34;维护变量&#34;&gt;维护变量&lt;/h4&gt;
 &lt;ul&gt;
-&lt;li&gt;$dfn[i]$：维护节点 $i$ 的&lt;a href=&#34;./%E6%90%9C%E7%B4%A2.md&#34;&gt;dfs搜索序&lt;/a&gt;。&lt;/li&gt;
+&lt;li&gt;$dfn[i]$：维护节点 $i$ 的&lt;a href=&#34;/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2/&#34;&gt;dfs搜索序&lt;/a&gt;。&lt;/li&gt;
 &lt;li&gt;$low[i]$：维护节点 $i$ 的子树中和子树中通过一条不在搜索树上的边能到达的所有结点的最小dfn值。&lt;/li&gt;
 &lt;li&gt;$stack:run$：维护一个队列，保证上面的节点在以底下第一个 $low[i]=dfn[i]$ 的节点为根的强连通分量中。&lt;/li&gt;
 &lt;/ul&gt;
@@ -904,7 +876,7 @@ $$&lt;/li&gt;
 &lt;li&gt;节点 $v$ 被访问过，并且不在栈中：节点 $v$ 的强连通分量的根节点已经被找到，其强连通分量已经确定，不用操作。&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h4 id=&#34;注意&#34;&gt;注意&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&#34;%E5%BC%BA%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F%E4%B8%8E%E7%BC%A9%E7%82%B9.assets/graph%20(1).png&#34; style=&#34;zoom: 75%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph%20(1).png&#34; style=&#34;zoom: 75%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;当我们回溯到节点 $i$，发现其 $low[i]=dfn[i]$ 时，说明我们找到一个强连通分量的根节点，栈中在节点 $i$ 上面的都在以节点 $i$ 为根的强连通分量中，因此，对于 $\forall{}\space node\space x\in{upper\space i},\space low[x]=dfn[i]$ 。&lt;/p&gt;
 &lt;p&gt;否则，看上图…………经过细致的观察，我们发现，节点 $1、7、5、8、3、4$ 为强连通分量。如果你不在出栈的时候再更新一次，你就惊喜的发现，$low[4]=4$ ？？？因为搜索到 $4\rightarrow8$ 这条边的时候，因为节点 $8$ 刚刚搜搜索到一条至 $low=4$ 的节点，所以$low[8]=4$，就导致 $low[4]=4$，而后没有边再访问到节点 $4$，因此其 $low$ 值无法得到更新，始终为 $4$ ！！！然而，这显然是错的…………&lt;/p&gt;
 &lt;p&gt;然后，注意一定要在子树都搜索完成后，在进行弹栈操作。这样，保证横叉边也可以积攒在栈中。&lt;/p&gt;
@@ -1030,16 +1002,16 @@ $$&lt;/li&gt;
     
     <item>
       <title>OIblogs: 树链刨分</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/</guid>
       <description>
         
         
         &lt;h1 id=&#34;树链刨分&#34;&gt;树链刨分&lt;/h1&gt;
 &lt;p&gt;一种极致优化的树上算法，据说07年被某个集训队队员搞出来的。&lt;/p&gt;
-&lt;p&gt;关于DFN序，参见&lt;a href=&#34;./%E6%90%9C%E7%B4%A2.md&#34;&gt;搜索.md&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;关于DFN序，参见&lt;a href=&#34;/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2/&#34;&gt;搜索&lt;/a&gt;。&lt;/p&gt;
 &lt;h2 id=&#34;一波约定&#34;&gt;一波约定&lt;/h2&gt;
 &lt;p&gt;为方便起见,我们约定一棵树的某些数据如下：&lt;/p&gt;
 &lt;ul&gt;
@@ -1067,7 +1039,7 @@ $$&lt;/li&gt;
 &lt;p&gt;这样，我们可以将树上的边也分为两类：父结点与重儿子之间连接的边为&lt;strong&gt;重边&lt;/strong&gt;，与轻儿子连接的边为&lt;strong&gt;轻边&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;进而推广到，由多条重边连接而成的路径为&lt;strong&gt;重链&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;看一个例子：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.png&#34; alt=&#34;adf&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.png&#34; alt=&#34;adf&#34; style=&#34;zoom:80%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;其中，&lt;font color=&#34;ffbf00&#34;&gt;黄色节点&lt;/font&gt;为其父亲节点的&lt;font color=&#34;ffbf00&#34;&gt;重儿子&lt;/font&gt;，白色为轻儿子；&lt;font color=&#34;red&#34;&gt;红色边&lt;/font&gt;为&lt;font color=&#34;red&#34;&gt;重边&lt;/font&gt;，黑色为轻边；&lt;font color=&#34;green&#34;&gt;绿色底&lt;/font&gt;为&lt;font color=&#34;green&#34;&gt;重链&lt;/font&gt;。&lt;/p&gt;
 &lt;p&gt;如此划分，则：&lt;/p&gt;
 &lt;ol&gt;
@@ -1140,7 +1112,7 @@ $$&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;很多博文中，我们又看到了一个新的东西——轻链。&lt;/p&gt;
 &lt;p&gt;其实，你是&lt;strong&gt;不能&lt;/strong&gt;把轻边连成一条链的，看下图：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86.assets/graph%20(3)-16332643443841.png&#34; style=&#34;zoom:70%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph%20(3)-16332643443841.png&#34; style=&#34;zoom:70%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;我们观察发现，如果我们将 $9$ 挂到 $3$ 上面的话，就和 $3\rightarrow8\rightarrow10$ 这条重链重了，造成求解的失败。&lt;/p&gt;
 &lt;ol start=&#34;2&#34;&gt;
 &lt;li&gt;&lt;strong&gt;top：&lt;/strong&gt;&lt;/li&gt;
@@ -1271,10 +1243,10 @@ $$&lt;/li&gt;
     
     <item>
       <title>OIblogs: 二分图匹配</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/</guid>
       <description>
         
         
@@ -1282,11 +1254,11 @@ $$&lt;/li&gt;
 &lt;h2 id=&#34;前置知识二分图&#34;&gt;前置知识——二分图&lt;/h2&gt;
 &lt;p&gt;首先，要明白什么是二分图(又称作二部图)。&lt;/p&gt;
 &lt;p&gt;形象的描述一下，现在你是某市的市长，而一条大河从你的城市中心穿流而过。所以，你为了使你的城市交通遍历，促进城市发展，你决定在这条河上建桥，以连接河两岸的路口。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E8%8D%89%E7%BA%B8-10.jpg&#34; alt=&#34;pi&#34; style=&#34;zoom: 33%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E8%8D%89%E7%BA%B8-10.jpg&#34; alt=&#34;pi&#34; style=&#34;zoom: 33%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如上图，所有河上的桥和路口就组成了一个二分图。&lt;/p&gt;
 &lt;p&gt;二分图的定义：如果顶点 $V $ 可分割为两个互不相交的子集 $(A,B)$，并且图中的每条边 $(i，j)$ 所关联的两个顶点 $i$ 和 $j$ 分别属于这两个不同的顶点集 $(i \in A,j \in B)$，则称图G为一个二分图。简而言之，就是顶点集 $V$ 可分割为两个互不相交的子集，并且图中每条边依附的两个顶点都分属于这两个互不相交的子集，两个子集内的顶点不相邻。&lt;/p&gt;
 &lt;p&gt;意思就说，你把一个图的顶点分到河的两岸，图上所有的边只能是桥，不能是陆地上的公路，即不能在河的一侧修建边。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/graph.png&#34; alt=&#34;sdafa&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph.png&#34; alt=&#34;sdafa&#34; style=&#34;zoom:67%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;区别二分图，关键是看点集是否能分成两个独立的点集。无向图G为二分图的&lt;strong&gt;充要条件&lt;/strong&gt;是，$G$ 至少有两个顶点，且其所有环的长度均为偶数，&lt;strong&gt;不存在奇环&lt;/strong&gt;。&lt;strong&gt;可以存在偶环&lt;/strong&gt;，如上图 $2\rightarrow7\rightarrow3\rightarrow8\rightarrow2$ 就是一个偶环，但上图满足二分图。任何无回路的的图均是二分图。&lt;/p&gt;
 &lt;p&gt;**总结：**DFS/BFS，如发现奇环则不是二分图，否则是。&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://baike.baidu.com/item/%E4%BA%8C%E5%88%86%E5%9B%BE&#34;&gt;充要条件的证明(百度百科)&lt;/a&gt;&lt;/p&gt;
@@ -1306,15 +1278,15 @@ $$&lt;/li&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;红色的边为当前的匹配
-&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF1.png&#34; alt=&#34;1&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;%E5%A2%9E%E5%B9%BF%E8%B7%AF1.png&#34; alt=&#34;1&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;紫色的边为当前匹配的增广路
-&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF2.png&#34; alt=&#34;2&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;%E5%A2%9E%E5%B9%BF%E8%B7%AF2.png&#34; alt=&#34;2&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;将增广路中匹配的边和非匹配变交换，匹配边数 $+1$
-&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E5%A2%9E%E5%B9%BF%E8%B7%AF3.png&#34; alt=&#34;3&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
+&lt;img src=&#34;%E5%A2%9E%E5%B9%BF%E8%B7%AF3.png&#34; alt=&#34;3&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;匈牙利算法的真面目&#34;&gt;匈牙利算法的真面目&lt;/h3&gt;
@@ -1382,7 +1354,7 @@ $$&lt;/p&gt;
 &lt;h3 id=&#34;最小点覆盖--最大匹配&#34;&gt;最小点覆盖 = 最大匹配&lt;/h3&gt;
 &lt;p&gt;**最小点覆盖：**假如选了一个点就相当于覆盖了以它为端点的所有边。最小点覆盖就是选择最少的点来覆盖所有的边。&lt;/p&gt;
 &lt;p&gt;**证明：**由最大匹配可知，不存在一条边的两个端点均没有被在最大匹配集合中的边所连接的情况(否则这条边就可以加入匹配)。因此，我们可以将边分为两类：匹配边和非匹配边；也可以将点分为两类：是匹配边的端点和不是匹配边的端点。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E4%BA%8C%E5%88%86%E5%9B%BE%E5%8C%B9%E9%85%8D.assets/%E6%9C%80%E5%B0%8F%E7%82%B9%E8%A6%86%E7%9B%96.png&#34; alt=&#34;df&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;%E6%9C%80%E5%B0%8F%E7%82%B9%E8%A6%86%E7%9B%96.png&#34; alt=&#34;df&#34; style=&#34;zoom:13%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;如上图，&lt;font color=&#34;red&#34;&gt;匹配边&lt;/font&gt;，非匹配边，&lt;font color=&#34;purple&#34;&gt;匹配边的端点&lt;/font&gt;，&lt;font color=&#34;green&#34;&gt;不是匹配边的端点&lt;/font&gt;。&lt;/p&gt;
 &lt;p&gt;在&lt;font color=&#34;purple&#34;&gt;匹配边的端点&lt;/font&gt;中选择有相邻&lt;font color=&#34;green&#34;&gt;不是匹配边的端点&lt;/font&gt;的点即可。&lt;/p&gt;
 &lt;p&gt;这样的点保证之多有最大匹配个。&lt;/p&gt;
@@ -1401,10 +1373,10 @@ $$&lt;/p&gt;
     
     <item>
       <title>OIblogs: 差分约束</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/</link>
       <pubDate>Sun, 17 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/</guid>
       <description>
         
         
@@ -1425,7 +1397,7 @@ $$
 \end{aligned}
 $$
 则根据上述条件，可以建图如下：&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F.assets/graph.png&#34; alt=&#34;adf&#34; style=&#34;zoom:95%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;graph.png&#34; alt=&#34;adf&#34; style=&#34;zoom:95%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;由不等式相加组合，可得到 $max(C-A)=min(b,a+c)$，这也正好对应图中 $A$ 到 $C$ 的最短路。&lt;/p&gt;
 &lt;p&gt;对于最大值：
 $$
@@ -1465,10 +1437,10 @@ $$
     
     <item>
       <title>OIblogs: 01分数规划</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/</guid>
       <description>
         
         
@@ -1482,7 +1454,7 @@ $$
 \frac{\sum_{i=1}^nval_i\times{x_i}}{\sum_{i=1}^ncost_i\times{x_i}}
 $$&lt;/p&gt;
 &lt;h2 id=&#34;二分解法&#34;&gt;二分解法&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;../basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%88%86%E6%B2%BB%EF%BC%88%E4%BA%8C%E5%88%86%EF%BC%89.md&#34;&gt;二分在这边&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;/oiblogs/basic%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3/%E5%88%86%E6%B2%BB/&#34;&gt;二分在这边&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;假设答案为 $ans$
 $$
 ans=min(\frac{\sum_{i=1}^nval_i\times{x_i}}{\sum_{i=1}^ncost_i\times{x_i}})
@@ -1499,18 +1471,17 @@ $$
 &lt;h1 id=&#34;最大比率环&#34;&gt;最大比率环&lt;/h1&gt;
 &lt;p&gt;和01分数规划思路基本相同，建立好模型后二分答案。&lt;/p&gt;
 &lt;p&gt;通过判断图内是否存在负环来调整二分界限&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20210213120449912.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0toYXNlaGVtd3k=,size_16,color_FFFFFF,t_70&#34; alt=&#34;fa&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92.assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0toYXNlaGVtd3k=,size_16,color_FFFFFF,t_70.png&#34; alt=&#34;adfdf&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://img-blog.csdnimg.cn/20210213120449912.png&#34; alt=&#34;fa&#34;&gt;&lt;/p&gt;
 
       </description>
     </item>
     
     <item>
       <title>OIblogs: 坐标距离</title>
-      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95/</link>
+      <link>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/</link>
       <pubDate>Mon, 18 Oct 2021 00:00:00 +0000</pubDate>
       
-      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95/</guid>
+      <guid>/oiblogs/graph%E5%9B%BE%E8%AE%BA/%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/</guid>
       <description>
         
         
@@ -1519,17 +1490,17 @@ $$
 &lt;h2 id=&#34;欧几里得距离&#34;&gt;欧几里得距离&lt;/h2&gt;
 &lt;p&gt;定义为&lt;strong&gt;以两点为端点的线段的长度&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;如下图，欧几里得距离为&lt;font color=&#34;red&#34;&gt;线段d&lt;/font&gt;的长度。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export.png&#34; alt=&#34;adf&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;geogebra-export.png&#34; alt=&#34;adf&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;$S=\sqrt{\abs{1-3}^2+\abs{5-2}^2}\approx3.61$&lt;/p&gt;
 &lt;h2 id=&#34;曼哈顿距离&#34;&gt;曼哈顿距离&lt;/h2&gt;
 &lt;p&gt;两点 $x,y,z\space\cdots\cdots$ 坐标差的绝对值之和。&lt;/p&gt;
 &lt;p&gt;如下图，曼哈顿距离为&lt;font color=&#34;red&#34;&gt;线段d和线段g&lt;/font&gt;的长度之和。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export-16292841405421.png&#34; alt=&#34;adsf&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;geogebra-export-16292841405421.png&#34; alt=&#34;adsf&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;$S=\abs{5-2}+\abs{1-3}=3+2=5$&lt;/p&gt;
 &lt;h2 id=&#34;切比雪夫距离&#34;&gt;切比雪夫距离&lt;/h2&gt;
 &lt;p&gt;两点 $x,y,z\space\cdots\cdots$ 坐标差的绝对值的最大值。&lt;/p&gt;
 &lt;p&gt;如下图，切比雪夫距离为&lt;font color=&#34;red&#34;&gt;线段d和线段g&lt;/font&gt;中长度较大的那一个，即&lt;font color=&#34;red&#34;&gt;线段d&lt;/font&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;%E5%9D%90%E6%A0%87%E8%A1%A8%E7%A4%BA%E6%B3%95.assets/geogebra-export-16292841405421.png&#34; alt=&#34;fa&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;geogebra-export-16292841405421.png&#34; alt=&#34;fa&#34; style=&#34;zoom:16%;&#34; /&gt;&lt;/p&gt;
 &lt;p&gt;$S=max(\abs{5-2},\abs{1-3})=max(3,2)=3$&lt;/p&gt;
 &lt;h2 id=&#34;坐标转化&#34;&gt;坐标转化&lt;/h2&gt;
 &lt;p&gt;一般提示距离的字眼：&lt;/p&gt;
