@@ -26,7 +26,7 @@ description: >
 $$
 \begin{aligned}
 \left\{\begin{array}{lr}
-&C-B\le{a}\\&C-A\le{b}\\&B-A\le{c}
+&C-B\le{a}\newline&C-A\le{b}\newline&B-A\le{c}
 \end{array}
 \right.
 \end{aligned}
@@ -40,8 +40,8 @@ $$
 对于最大值：
 $$
 \begin{aligned}
-\left\{\begin{array}{lr}
-&C-B\ge{a}\\&C-A\ge{b}\\&B-A\ge{c}
+\left\{\begin{array}{rcl}
+&C-B\ge{a}\newline&C-A\ge{b}\newline&B-A\ge{c}
 \end{array}
 \right.
 \end{aligned}
