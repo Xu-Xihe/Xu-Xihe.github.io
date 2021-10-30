@@ -362,7 +362,7 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + O2 \triangleq Na2O2}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;与氧气&lt;strong&gt;剧烈&lt;/strong&gt;反应，发出&lt;strong&gt;黄色&lt;/strong&gt;火焰，生成&lt;strong&gt;淡黄色&lt;/strong&gt;固体&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;与氧气剧烈反应，发出黄色火焰，生成淡黄色固体&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + 2H2O = 2NaOH + H2 ^}$&lt;/td&gt;
@@ -370,7 +370,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + Cl2 \overset{点燃}{=} 2NaCl}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;发出&lt;strong&gt;黄色&lt;/strong&gt;火焰，生成&lt;strong&gt;白色&lt;/strong&gt;固体&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;发出黄色火焰，生成白色固体&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + S \triangleq NaS}$&lt;/td&gt;
@@ -378,7 +378,7 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + 2H+ = 2Na+ + H2 ^}$ (与 $\ce{H+}$ 反应)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;浮熔游响红&lt;/strong&gt;，比水更剧烈&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;浮熔游响红，比水更剧烈&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -445,15 +445,15 @@
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Fe + Cl2 \triangleq 2FeCl3}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色&lt;/strong&gt;烟，溶于水呈&lt;strong&gt;黄色&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色烟，溶于水呈黄色&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{Cu + Cl2 \triangleq CuCl2}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色&lt;/strong&gt;烟，溶于水呈&lt;strong&gt;黄色&lt;/strong&gt;(极少水)/&lt;strong&gt;蓝色&lt;/strong&gt;(较多水)/&lt;strong&gt;蓝绿色&lt;/strong&gt;(少量水)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色烟，溶于水呈黄色(极少水)/蓝色(较多水)/蓝绿色(少量水)&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{H2 + Cl2 \overset{点燃}{=}2HCl}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;安静地燃烧，&lt;strong&gt;苍白色&lt;/strong&gt;火焰，生成的 $\ce{HCl_{(g)}}$ 与水蒸气结合，产生白色雾(盐酸小液滴)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;**安静地燃烧，苍白色火焰，生成的 $\ce{HCl_{(g)}}$ 与水蒸气结合，产生白色雾(盐酸小液滴)**&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{H2 + Cl2 \overset{光照}{=}2HCl}$&lt;/td&gt;
@@ -461,14 +461,17 @@
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{P + Cl2 \overset{点燃}{=} PCl3}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;固体，&lt;strong&gt;烟&lt;/strong&gt;，白色&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;固体，烟，白色&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{P + Cl2 \overset{点燃}{=} PCl5}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;液体，瓶口有&lt;strong&gt;白色雾&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;液体，瓶口有白色雾&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;与水反应：&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>

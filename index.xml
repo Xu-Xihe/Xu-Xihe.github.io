@@ -205,8 +205,7 @@
 &lt;p&gt;​      现在，我们用fa[i]数组记录编号为i的大侠上级的编号。如果fa[i]==i，则i号大侠是队长。而find函数这是用来寻找队长的。
 ​      我非常喜欢周翡与谢允，他们分别属于四十八寨和皇亲国戚，那明显就是两个阵营了。我不希望他们互相打架~~(磕糖没够)~~，就对他俩说：“你们两位拉拉勾，做好(x)朋(q)友(l)吧。”
 ​      他们看在我的面子上，同意了(我脸真大)。这一同意可非同小可，整个四十八寨和皇帝的人就不能打架了。这么重大的变化，可如何实现呀，要改动多少地方？
-​      其实非常简单，我对谢允说：“大师，麻烦你把你的上级改为周翡吧。这样一来，两派原先的所有人员的终极boss都是周翡，那还打个球啊！”谢允一听肯定火大了：“我艹，凭什么是我变成她手下呀，怎么不反过来？我抗议！”&lt;/p&gt;
-&lt;p&gt;&lt;del&gt;(大笑)(反正我们关心的只是连通性，门派内部的结构不要紧的，人家家事也不好管的。)&lt;/del&gt;&lt;/p&gt;
+​      其实非常简单，我对谢允说：“大师，麻烦你把你的上级改为周翡吧。这样一来，两派原先的所有人员的终极boss都是周翡，那还打个球啊！”谢允一听肯定火大了：“我艹，凭什么是我变成她手下呀，怎么不反过来？我抗议！”~~(大笑)(反正我们关心的只是连通性，门派内部的结构不要紧的，人家家事也不好管的。)~~&lt;/p&gt;
 &lt;p&gt;​      于是，两人相约一战，杀的是天昏地暗，风云为之变色啊。但是啊，这场战争终究会有胜负，胜者为王，弱者就被吞并了。反正谁加入谁效果是一样的，门派就由两个变成一个了。而together函数就是用来合并门派的。&lt;/p&gt;
 &lt;p&gt;​      两个互不相识的大侠碰面了，想知道能不能干一场。于是赶紧打电话问自己的上级：“你是不是掌门？”上级说：“我不是呀，我的上级是谁谁谁，你问问他看看。”
 ​      一路问下去，原来两人的队长都是周翡。“哎呀呀，原来是自己人，有礼有礼，在下岐兰山盘龙洞白面葫芦娃!”“幸会幸会，在下万仙山暖香阁狗尾(yi)巴花！”两人高高兴兴地手拉手喝酒去了。“等等等等，两位大侠请留步，还有事情没完成呢！”我叫住他俩。“哦，对了，还要做路径压缩。”两人醒悟。(find)
@@ -1606,7 +1605,7 @@ $$
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;floyd弗洛伊德算法&#34;&gt;Floyd(弗洛伊德)算法&lt;/h2&gt;
 &lt;p&gt;多源最短路(任意起止点)算法，时间复杂度 $O(n^3)$​，空间复杂度 $O(n^2)$​​。&lt;/p&gt;
-&lt;p&gt;适用于具有正或负边缘权重，但**没有负周期(**负环)的加权图中。在稠密图中效率较高。&lt;/p&gt;
+&lt;p&gt;适用于具有正或负边缘权重，但**没有负周期(负环)**的加权图中。在稠密图中效率较高。&lt;/p&gt;
 &lt;p&gt;运用dp思想，最开始只允许经过1号顶点进行中转，接下来只允许经过1号和2号顶点进行中转&amp;hellip;&amp;hellip;允许经过$1\sim n$​号所有顶点进行中转，来不断动态更新任意两点之间的最短路程。&lt;/p&gt;
 &lt;p&gt;dp[i][j]表示从 $i$ 号节点到 $j$ 号节点的最短路径长度。&lt;/p&gt;
 &lt;ol&gt;
@@ -2265,7 +2264,7 @@ $$&lt;/p&gt;
         &lt;h1 id=&#34;强连通分量与缩点&#34;&gt;强连通分量与缩点&lt;/h1&gt;
 &lt;h2 id=&#34;又是啥玩意&#34;&gt;又是啥玩意&lt;/h2&gt;
 &lt;h3 id=&#34;强连通&#34;&gt;强连通&lt;/h3&gt;
-&lt;p&gt;&lt;del&gt;在**有向图 **$G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;在&lt;strong&gt;有向图&lt;/strong&gt; $G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;啥玩意嘛。&lt;/p&gt;
 &lt;p&gt;简单一点，&lt;strong&gt;有向图&lt;/strong&gt;中，两个节点之间可以&lt;strong&gt;互相&lt;/strong&gt;到达，则这两个节点强连通。&lt;/p&gt;
 &lt;h3 id=&#34;强连通图&#34;&gt;强连通图&lt;/h3&gt;
@@ -3152,8 +3151,8 @@ $$
 &lt;p&gt;具有欧拉回路的图称为欧拉图，具有欧拉通路但不具有欧拉回路的图称为半欧拉图。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;存在欧拉通路的充要条件：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;**无向图：**各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)&lt;/li&gt;
-&lt;li&gt;**有向图：**各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无向图：&lt;/strong&gt; 各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有向图：&lt;/strong&gt; 各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;存在欧拉回路的充要条件：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -3696,7 +3695,7 @@ $$&lt;/p&gt;
 $$
 \begin{aligned}
 \left{\begin{array}{lr}
-&amp;amp;C-B\le{a}\&amp;amp;C-A\le{b}\&amp;amp;B-A\le{c}
+&amp;amp;C-B\le{a}\newline&amp;amp;C-A\le{b}\newline&amp;amp;B-A\le{c}
 \end{array}
 \right.
 \end{aligned}
@@ -3707,8 +3706,8 @@ $$
 &lt;p&gt;对于最大值：
 $$
 \begin{aligned}
-\left{\begin{array}{lr}
-&amp;amp;C-B\ge{a}\&amp;amp;C-A\ge{b}\&amp;amp;B-A\ge{c}
+\left{\begin{array}{rcl}
+&amp;amp;C-B\ge{a}\newline&amp;amp;C-A\ge{b}\newline&amp;amp;B-A\ge{c}
 \end{array}
 \right.
 \end{aligned}
@@ -4259,7 +4258,7 @@ $$
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + O2 \triangleq Na2O2}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;与氧气&lt;strong&gt;剧烈&lt;/strong&gt;反应，发出&lt;strong&gt;黄色&lt;/strong&gt;火焰，生成&lt;strong&gt;淡黄色&lt;/strong&gt;固体&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;与氧气剧烈反应，发出黄色火焰，生成淡黄色固体&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + 2H2O = 2NaOH + H2 ^}$&lt;/td&gt;
@@ -4267,7 +4266,7 @@ $$
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + Cl2 \overset{点燃}{=} 2NaCl}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;发出&lt;strong&gt;黄色&lt;/strong&gt;火焰，生成&lt;strong&gt;白色&lt;/strong&gt;固体&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;发出黄色火焰，生成白色固体&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + S \triangleq NaS}$&lt;/td&gt;
@@ -4275,7 +4274,7 @@ $$
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Na + 2H+ = 2Na+ + H2 ^}$ (与 $\ce{H+}$ 反应)&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;浮熔游响红&lt;/strong&gt;，比水更剧烈&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;浮熔游响红，比水更剧烈&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
@@ -4342,15 +4341,15 @@ $$
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{2Fe + Cl2 \triangleq 2FeCl3}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色&lt;/strong&gt;烟，溶于水呈&lt;strong&gt;黄色&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色烟，溶于水呈黄色&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{Cu + Cl2 \triangleq CuCl2}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色&lt;/strong&gt;烟，溶于水呈&lt;strong&gt;黄色&lt;/strong&gt;(极少水)/&lt;strong&gt;蓝色&lt;/strong&gt;(较多水)/&lt;strong&gt;蓝绿色&lt;/strong&gt;(少量水)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;棕色烟，溶于水呈黄色(极少水)/蓝色(较多水)/蓝绿色(少量水)&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{H2 + Cl2 \overset{点燃}{=}2HCl}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;安静地燃烧，&lt;strong&gt;苍白色&lt;/strong&gt;火焰，生成的 $\ce{HCl_{(g)}}$ 与水蒸气结合，产生白色雾(盐酸小液滴)&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;**安静地燃烧，苍白色火焰，生成的 $\ce{HCl_{(g)}}$ 与水蒸气结合，产生白色雾(盐酸小液滴)**&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{H2 + Cl2 \overset{光照}{=}2HCl}$&lt;/td&gt;
@@ -4358,14 +4357,17 @@ $$
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{P + Cl2 \overset{点燃}{=} PCl3}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;固体，&lt;strong&gt;烟&lt;/strong&gt;，白色&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;固体，烟，白色&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:center&#34;&gt;$\ce{P + Cl2 \overset{点燃}{=} PCl5}$&lt;/td&gt;
-&lt;td style=&#34;text-align:center&#34;&gt;液体，瓶口有&lt;strong&gt;白色雾&lt;/strong&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align:center&#34;&gt;&lt;strong&gt;液体，瓶口有白色雾&lt;/strong&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
+&lt;ol start=&#34;2&#34;&gt;
+&lt;li&gt;与水反应：&lt;/li&gt;
+&lt;/ol&gt;
 
       </description>
     </item>

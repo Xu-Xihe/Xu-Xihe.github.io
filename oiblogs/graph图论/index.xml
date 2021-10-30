@@ -430,7 +430,7 @@
 &lt;span style=&#34;color:#000;font-weight:bold&#34;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;floyd弗洛伊德算法&#34;&gt;Floyd(弗洛伊德)算法&lt;/h2&gt;
 &lt;p&gt;多源最短路(任意起止点)算法，时间复杂度 $O(n^3)$​，空间复杂度 $O(n^2)$​​。&lt;/p&gt;
-&lt;p&gt;适用于具有正或负边缘权重，但**没有负周期(**负环)的加权图中。在稠密图中效率较高。&lt;/p&gt;
+&lt;p&gt;适用于具有正或负边缘权重，但**没有负周期(负环)**的加权图中。在稠密图中效率较高。&lt;/p&gt;
 &lt;p&gt;运用dp思想，最开始只允许经过1号顶点进行中转，接下来只允许经过1号和2号顶点进行中转&amp;hellip;&amp;hellip;允许经过$1\sim n$​号所有顶点进行中转，来不断动态更新任意两点之间的最短路程。&lt;/p&gt;
 &lt;p&gt;dp[i][j]表示从 $i$ 号节点到 $j$ 号节点的最短路径长度。&lt;/p&gt;
 &lt;ol&gt;
@@ -843,7 +843,7 @@ $$&lt;/li&gt;
         &lt;h1 id=&#34;强连通分量与缩点&#34;&gt;强连通分量与缩点&lt;/h1&gt;
 &lt;h2 id=&#34;又是啥玩意&#34;&gt;又是啥玩意&lt;/h2&gt;
 &lt;h3 id=&#34;强连通&#34;&gt;强连通&lt;/h3&gt;
-&lt;p&gt;&lt;del&gt;在**有向图 **$G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。&lt;/del&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;在&lt;strong&gt;有向图&lt;/strong&gt; $G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。&lt;/del&gt;&lt;/p&gt;
 &lt;p&gt;啥玩意嘛。&lt;/p&gt;
 &lt;p&gt;简单一点，&lt;strong&gt;有向图&lt;/strong&gt;中，两个节点之间可以&lt;strong&gt;互相&lt;/strong&gt;到达，则这两个节点强连通。&lt;/p&gt;
 &lt;h3 id=&#34;强连通图&#34;&gt;强连通图&lt;/h3&gt;
@@ -1221,8 +1221,8 @@ $$&lt;/li&gt;
 &lt;p&gt;具有欧拉回路的图称为欧拉图，具有欧拉通路但不具有欧拉回路的图称为半欧拉图。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;存在欧拉通路的充要条件：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;**无向图：**各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)&lt;/li&gt;
-&lt;li&gt;**有向图：**各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;无向图：&lt;/strong&gt; 各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;有向图：&lt;/strong&gt; 各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;存在欧拉回路的充要条件：&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -1391,7 +1391,7 @@ $$&lt;/p&gt;
 $$
 \begin{aligned}
 \left{\begin{array}{lr}
-&amp;amp;C-B\le{a}\&amp;amp;C-A\le{b}\&amp;amp;B-A\le{c}
+&amp;amp;C-B\le{a}\newline&amp;amp;C-A\le{b}\newline&amp;amp;B-A\le{c}
 \end{array}
 \right.
 \end{aligned}
@@ -1402,8 +1402,8 @@ $$
 &lt;p&gt;对于最大值：
 $$
 \begin{aligned}
-\left{\begin{array}{lr}
-&amp;amp;C-B\ge{a}\&amp;amp;C-A\ge{b}\&amp;amp;B-A\ge{c}
+\left{\begin{array}{rcl}
+&amp;amp;C-B\ge{a}\newline&amp;amp;C-A\ge{b}\newline&amp;amp;B-A\ge{c}
 \end{array}
 \right.
 \end{aligned}

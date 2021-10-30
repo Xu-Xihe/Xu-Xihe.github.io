@@ -180,7 +180,7 @@ if (!doNotTrack) {
   aria-label="站内搜索…"
   autocomplete="off"
   
-  data-offline-search-index-json-src="/offline-search-index.3d51054a92112d4aec5c1e41ad2d5b41.json"
+  data-offline-search-index-json-src="/offline-search-index.48b165402c5a2898c383506c9682af46.json"
   data-offline-search-base-href="/"
   data-offline-search-max-results="10"
 >
@@ -833,7 +833,7 @@ if (!doNotTrack) {
 <span style="color:#000;font-weight:bold">}</span>
 </code></pre></div><h2 id="floyd弗洛伊德算法">Floyd(弗洛伊德)算法</h2>
 <p>多源最短路(任意起止点)算法，时间复杂度 $O(n^3)$​，空间复杂度 $O(n^2)$​​。</p>
-<p>适用于具有正或负边缘权重，但**没有负周期(**负环)的加权图中。在稠密图中效率较高。</p>
+<p>适用于具有正或负边缘权重，但**没有负周期(负环)**的加权图中。在稠密图中效率较高。</p>
 <p>运用dp思想，最开始只允许经过1号顶点进行中转，接下来只允许经过1号和2号顶点进行中转&hellip;&hellip;允许经过$1\sim n$​号所有顶点进行中转，来不断动态更新任意两点之间的最短路程。</p>
 <p>dp[i][j]表示从 $i$ 号节点到 $j$ 号节点的最短路径长度。</p>
 <ol>
@@ -1274,7 +1274,7 @@ $$</li>
 	<h1 id="强连通分量与缩点">强连通分量与缩点</h1>
 <h2 id="又是啥玩意">又是啥玩意</h2>
 <h3 id="强连通">强连通</h3>
-<p><del>在**有向图 **$G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。</del></p>
+<p><del>在<strong>有向图</strong> $G$ 中，两个顶点 $u$，$v$ 间有一条从 $u$ 到 $v$ 的有向路径，同时还有一条从 $v$ 到 $u$ 的有向路径，则节点 $u$ 和 节点 $v$ 强连通。</del></p>
 <p>啥玩意嘛。</p>
 <p>简单一点，<strong>有向图</strong>中，两个节点之间可以<strong>互相</strong>到达，则这两个节点强连通。</p>
 <h3 id="强连通图">强连通图</h3>
@@ -1680,8 +1680,8 @@ $$</li>
 <p>具有欧拉回路的图称为欧拉图，具有欧拉通路但不具有欧拉回路的图称为半欧拉图。</p>
 <p><strong>存在欧拉通路的充要条件：</strong></p>
 <ul>
-<li>**无向图：**各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)</li>
-<li>**有向图：**各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)</li>
+<li><strong>无向图：</strong> 各点连通，没有或仅有两个奇度结点。(偶度保证一入一出，两个奇度可以作为起止节点)</li>
+<li><strong>有向图：</strong> 各点连通，有一个点出度 = 入度 +1，有一个点入度 = 出度 +1，其余点入度 = 出度。(入度出度相同保证一入一出，其余两点为起止节点)</li>
 </ul>
 <p><strong>存在欧拉回路的充要条件：</strong></p>
 <ul>
@@ -1878,7 +1878,7 @@ $$</p>
 $$
 \begin{aligned}
 \left{\begin{array}{lr}
-&amp;C-B\le{a}\&amp;C-A\le{b}\&amp;B-A\le{c}
+&amp;C-B\le{a}\newline&amp;C-A\le{b}\newline&amp;B-A\le{c}
 \end{array}
 \right.
 \end{aligned}
@@ -1889,8 +1889,8 @@ $$
 <p>对于最大值：
 $$
 \begin{aligned}
-\left{\begin{array}{lr}
-&amp;C-B\ge{a}\&amp;C-A\ge{b}\&amp;B-A\ge{c}
+\left{\begin{array}{rcl}
+&amp;C-B\ge{a}\newline&amp;C-A\ge{b}\newline&amp;B-A\ge{c}
 \end{array}
 \right.
 \end{aligned}
